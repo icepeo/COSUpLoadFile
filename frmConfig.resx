@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LblAppIdTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LblAppIdTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="LblAppIdTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 49</value>
+  </data>
+  <data name="LblAppIdTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
+  </data>
+  <data name="LblAppIdTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblAppIdTitle.Text" xml:space="preserve">
+    <value>APP ID：</value>
+  </data>
+  <data name="&gt;&gt;LblAppIdTitle.Name" xml:space="preserve">
+    <value>LblAppIdTitle</value>
+  </data>
+  <data name="&gt;&gt;LblAppIdTitle.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinLabel, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LblAppIdTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblAppIdTitle.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="LblsecretID.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LblsecretID.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="LblsecretID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 90</value>
+  </data>
+  <data name="LblsecretID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 17</value>
+  </data>
+  <data name="LblsecretID.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblsecretID.Text" xml:space="preserve">
+    <value>secretID：</value>
+  </data>
+  <data name="&gt;&gt;LblsecretID.Name" xml:space="preserve">
+    <value>LblsecretID</value>
+  </data>
+  <data name="&gt;&gt;LblsecretID.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinLabel, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LblsecretID.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblsecretID.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="LblsecretKey.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LblsecretKey.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="LblsecretKey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 131</value>
+  </data>
+  <data name="LblsecretKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 17</value>
+  </data>
+  <data name="LblsecretKey.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblsecretKey.Text" xml:space="preserve">
+    <value>secretKey：</value>
+  </data>
+  <data name="&gt;&gt;LblsecretKey.Name" xml:space="preserve">
+    <value>LblsecretKey</value>
+  </data>
+  <data name="&gt;&gt;LblsecretKey.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinLabel, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LblsecretKey.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblsecretKey.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LblBucketName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LblBucketName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="LblBucketName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 172</value>
+  </data>
+  <data name="LblBucketName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 17</value>
+  </data>
+  <data name="LblBucketName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblBucketName.Text" xml:space="preserve">
+    <value>BucketName：</value>
+  </data>
+  <data name="&gt;&gt;LblBucketName.Name" xml:space="preserve">
+    <value>LblBucketName</value>
+  </data>
+  <data name="&gt;&gt;LblBucketName.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinLabel, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LblBucketName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblBucketName.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LblThreading.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LblThreading.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="LblThreading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 213</value>
+  </data>
+  <data name="LblThreading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 17</value>
+  </data>
+  <data name="LblThreading.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblThreading.Text" xml:space="preserve">
+    <value>线程数：</value>
+  </data>
+  <data name="&gt;&gt;LblThreading.Name" xml:space="preserve">
+    <value>LblThreading</value>
+  </data>
+  <data name="&gt;&gt;LblThreading.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinLabel, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LblThreading.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblThreading.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtAppIDValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 44</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtAppIDValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtAppIDValue.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="txtAppIDValue.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="txtAppIDValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 28</value>
+  </data>
+  <data name="resource.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9.75pt</value>
+  </data>
+  <data name="resource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="resource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 18</value>
+  </data>
+  <data name="resource.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="resource.Text" xml:space="preserve">
+    <value>10046129</value>
+  </data>
+  <data name="txtAppIDValue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtAppIDValue.Text" xml:space="preserve">
+    <value>10046129</value>
+  </data>
+  <data name="&gt;&gt;txtAppIDValue.Name" xml:space="preserve">
+    <value>txtAppIDValue</value>
+  </data>
+  <data name="&gt;&gt;txtAppIDValue.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinTextBox, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtAppIDValue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtAppIDValue.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtSecretIDValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 85</value>
+  </data>
+  <data name="txtSecretIDValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtSecretIDValue.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="txtSecretIDValue.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="txtSecretIDValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 28</value>
+  </data>
+  <data name="resource.Dock1" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.Font1" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9.75pt</value>
+  </data>
+  <data name="resource.Location1" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="resource.Size1" type="System.Drawing.Size, System.Drawing">
+    <value>260, 18</value>
+  </data>
+  <data name="resource.TabIndex1" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="resource.Text1" xml:space="preserve">
+    <value>AKIDtN47V5re4q5buarSlOVdVGKBYe98dUOT</value>
+  </data>
+  <data name="txtSecretIDValue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtSecretIDValue.Text" xml:space="preserve">
+    <value>AKIDtN47V5re4q5buarSlOVdVGKBYe98dUOT</value>
+  </data>
+  <data name="&gt;&gt;txtSecretIDValue.Name" xml:space="preserve">
+    <value>txtSecretIDValue</value>
+  </data>
+  <data name="&gt;&gt;txtSecretIDValue.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinTextBox, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSecretIDValue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtSecretIDValue.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtSecretKeyValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 126</value>
+  </data>
+  <data name="txtSecretKeyValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtSecretKeyValue.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="txtSecretKeyValue.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="txtSecretKeyValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 28</value>
+  </data>
+  <data name="resource.Dock2" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.Font2" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9.75pt</value>
+  </data>
+  <data name="resource.Location2" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="resource.Size2" type="System.Drawing.Size, System.Drawing">
+    <value>260, 18</value>
+  </data>
+  <data name="resource.TabIndex2" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="resource.Text2" xml:space="preserve">
+    <value>xx3jw44FfQ1HtzmAdnzXfxEH05F3qgGO</value>
+  </data>
+  <data name="txtSecretKeyValue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtSecretKeyValue.Text" xml:space="preserve">
+    <value>xx3jw44FfQ1HtzmAdnzXfxEH05F3qgGO</value>
+  </data>
+  <data name="&gt;&gt;txtSecretKeyValue.Name" xml:space="preserve">
+    <value>txtSecretKeyValue</value>
+  </data>
+  <data name="&gt;&gt;txtSecretKeyValue.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinTextBox, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSecretKeyValue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtSecretKeyValue.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtBucketNameValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 167</value>
+  </data>
+  <data name="txtBucketNameValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtBucketNameValue.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="txtBucketNameValue.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="txtBucketNameValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 28</value>
+  </data>
+  <data name="resource.Dock3" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.Font3" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9.75pt</value>
+  </data>
+  <data name="resource.Location3" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="resource.Size3" type="System.Drawing.Size, System.Drawing">
+    <value>260, 18</value>
+  </data>
+  <data name="resource.TabIndex3" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="resource.Text3" xml:space="preserve">
+    <value>mytest</value>
+  </data>
+  <data name="txtBucketNameValue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtBucketNameValue.Text" xml:space="preserve">
+    <value>mytest</value>
+  </data>
+  <data name="&gt;&gt;txtBucketNameValue.Name" xml:space="preserve">
+    <value>txtBucketNameValue</value>
+  </data>
+  <data name="&gt;&gt;txtBucketNameValue.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinTextBox, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtBucketNameValue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtBucketNameValue.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtThreadValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 208</value>
+  </data>
+  <data name="txtThreadValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtThreadValue.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="txtThreadValue.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="txtThreadValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 28</value>
+  </data>
+  <data name="resource.Dock4" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.Font4" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9.75pt</value>
+  </data>
+  <data name="resource.Location4" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="resource.Size4" type="System.Drawing.Size, System.Drawing">
+    <value>65, 18</value>
+  </data>
+  <data name="resource.TabIndex4" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="resource.Text4" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtThreadValue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtThreadValue.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtThreadValue.Name" xml:space="preserve">
+    <value>txtThreadValue</value>
+  </data>
+  <data name="&gt;&gt;txtThreadValue.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinTextBox, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtThreadValue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtThreadValue.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BtnSaveConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 251</value>
+  </data>
+  <data name="BtnSaveConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 30</value>
+  </data>
+  <data name="BtnSaveConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnSaveConfig.Text" xml:space="preserve">
+    <value>保  存</value>
+  </data>
+  <data name="&gt;&gt;BtnSaveConfig.Name" xml:space="preserve">
+    <value>BtnSaveConfig</value>
+  </data>
+  <data name="&gt;&gt;BtnSaveConfig.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinButton, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BtnSaveConfig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnSaveConfig.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnCloseConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 251</value>
+  </data>
+  <data name="BtnCloseConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 30</value>
+  </data>
+  <data name="BtnCloseConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnCloseConfig.Text" xml:space="preserve">
+    <value>关  闭</value>
+  </data>
+  <data name="&gt;&gt;BtnCloseConfig.Name" xml:space="preserve">
+    <value>BtnCloseConfig</value>
+  </data>
+  <data name="&gt;&gt;BtnCloseConfig.Type" xml:space="preserve">
+    <value>CCWin.SkinControl.SkinButton, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BtnCloseConfig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnCloseConfig.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>390, 327</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOiNTBLkiENG4YU6dN6BM5/efiy53nonyd55I9Xfdh3h4HUb5+FyF+3icBTx4nAU8eNv
+        FPPkbA/55WwP+eVrD/nlaw/55WoQ+eNtFPHjaxTx5GsU8eJtF+3ibRnp4G8d4d9yItXfdCjH4HcuseF8
+        NYvjgD5i54NEOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADjfzxo4HctteBxIdfibBft5mgN+edoDPvnaQz77mYD/+1nA//taAP/7WcD/+1oBP/taAP/7WgE/+1p
+        A//uaAT/7mcD/+1nA//tZwP/7mYD/+5lA//uZAT/7mMD/+5iBP/vYQP/72AD/+9eA//wXAP/8FoD//BZ
+        A//xVwP/8VUD//JTAv/yUAL/808D/+pYDPvqVwv77FUM++pWDvnmXhjp42YlyeNwNJHpfEYqAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADlfD5i4G0j0eZiD/noYwz752QM++5jBP/uZQT/7mYE/+1nA//uaAT/7mkE/+1pBP/tagT/7WsE/+1s
+        BP/tbAT/7WwE/+xtBP/sbQT/7GwE/+xsBP/sawP/7GoE/+1qA//uaQT/7WgE/+5mA//uZgP/7mUD/+5j
+        A//vYQP/718E/+9eA//wXAP/8FoC//FYA//yVgP/8lQD//JSAv/yUAP/800D//RLA//0SAL/9UcC//ZE
+        Av/1QgL/7kwL++1LDPvmWBvj5Ww1iwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAON5OnTmYRD36WAM++9gBP/vYgP/72QD/+5lA//uZgT/7WgE/+1pBP/tagT/7WsE/+xt
+        BP/sbgT/7G8E/+xvBP/sbwT/7HAE/+xwBP/scQT/7HAE/+xwBP/rbwT/7G8E/+xuBP/sbgT/7GwE/+xs
+        BP/tawP/7WkE/+1pBP/uZwP/7mUE/+9jA//vYgT/8F8D//BeA//wWwP/8VoD//FXA//yVQP/8lMC//JR
+        A//zTgP/80wD//RJA//1RgL/9kQC//ZBAv/3PwL/9zwC/+9ICvvtRw355GkymQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOJvKrvpXwv7718D/+9hA//vYwT/7mUE/+5nA//taAP/7WoE/+xs
+        BP/tbQP/7G4E/+xvA//rcQT/63IE/+tyBP/rdAT/6nQE/+t0BP/rdQX/6nQE/+p0BP/rdAX/63ME/+pz
+        BP/scgX/7HEE/+txBP/scAT/7G4E/+xtA//sawT/7WoD/+1oBP/uZwP/7mQD/+9iBP/vYQP/8F8D//Bd
+        A//wWgP/8VgD//JVA//yUwL/81AD//NOAv/0SwP/9EkC//VHAv/1RAL/9kIB//Y/Af/3PAL/+DoC/+9F
+        C/vlWiLRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOR5OnTpXwv772AE/+9iBP/uZAT/7mYD/+5p
+        BP/tagT/7WwE/+xuBP/sbwT/7HEE/+tyBP/qdAT/63QE/+t1Bf/qdgT/6ncE/+p3Bf/peAX/6ngF/+p4
+        Bf/qeAT/6ngE/+p4BP/qdwT/63YE/+t2BP/qdAT/6nME/+tyBP/scQT/628E/+1uBP/sbAT/7WoD/+5o
+        BP/tZgP/72QE/+9iBP/vYAP/8F0D//BbA//xWAP/8VYD//JUA//zUAL/804D//RMAv/1SQL/9UYC//VD
+        Av/2QQL/9j8C//g8Av/4OQH/70UL++VpNJUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmYhH172AD/+9j
+        BP/uZQP/7WcD/+1pA//sbAT/7W0E/+xvBP/rcgT/63ME/+t1BP/rdQT/63gF/+l4BP/peQX/6XoE/+l7
+        Bf/pfAT/6XwE/+l8BP/pfAT/6XwF/+l7BP/pewT/6XsF/+p6BP/peQT/6XgE/+p3Bf/qdgT/63UE/+tz
+        BP/rcQT/628E/+xtBP/tawP/7WoE/+5oBP/uZQT/7mME/+9hA//wXgP/8FsD//FYA//yVgL/8lQD//JR
+        Av/zTgL/9EsD//RJA//1RgL/9kMC//ZBAv/3PgL/9zsC//c5Af/tRwz5AAAAAAAAAAAAAAAAAAAAAAAA
+        AADjejp06WIM++5jA//tZgT/7mkD/+1rBP/tbQT/7G8E/+txBP/rcwT/6nUE/+p3Bf/peAT/6nkF/+l7
+        BP/pfAT/6H0F/+l+BP/ofgX/6IAE/+h/Bf/ogAT/6YAF/+iABf/ogAT/6H8F/+l/Bf/ofwX/6X0F/+l8
+        BP/qewT/6XoF/+p4BP/qdgX/63UE/+tzBP/scQT/7G8E/+xtBP/sagT/7WgE/+5mA//uZAP/72ED/+9f
+        A//wXAP/8VkD//JWA//yUwL/8lAD//NOAv/0SwL/9UgD//VGAv/2QgL/9kAC//c9Av/3OwL/70UK++Vs
+        NocAAAAAAAAAAAAAAAAAAAAA4W0f3e5jA//uZgT/7WkE/+xsBP/sbgT/63AE/+xzBP/rdQT/6nYE/+p4
+        BP/pegT/6XwE/+l+BP/ofwX/6IAF/+iBBP/nggX/6IMF/+iEBf/nhAX/6IMF/+eEBf/nhAX/54QF/+iD
+        Bf/nggX/54IF/+iBBf/pgAX/6X8F/+l9Bf/pfAT/6XoE/+p4BP/qdwX/63UE/+tyBP/scAT/7G4E/+1s
+        A//uaQP/7mcE/+5kA//vYQP/714E//BcA//xWQP/8VYD//JTA//zUQL/800D//RKAv/1SAL/9UUC//VC
+        Av/2PwL/9zwB//g5Av/nVhzjAAAAAAAAAAAAAAAAAAAAAOdlDvntZwT/7WkD/+1sBP/sbwT/63EE/+tz
+        BP/qdgX/6ngE/+l6Bf/pfAX/6X4F/+iABf/ogQX/6IMF/+eDBP/nhQX/54YF/+eHBf/mhwX/5ogF/+eI
+        Bf/mhwX/5ocF/+aIBf/mhwX/54YF/+aFBf/nhQX/54QE/+iCBf/ogQX/6H8F/+l+BP/pfAT/6noE/+l4
+        BP/qdQT/63ME/+txBP/sbwT/7GwE/+1qBP/uZwT/7mQE/+9hBP/wXgP/8FwD//FYA//yVQL/8lIC//NQ
+        A//0TAL/9EkC//VGAv/1RAL/9kEC//c+Av/3OwH/7UgM+QAAAAAAAAAAAAAAAOmITBLmZw377WoE/+xs
+        BP/sbwT/63EE/+t0BP/qdwX/6nkE/+p8BP/pfQT/6H8F/+iBBf/ngwX/54QF/+aGBf/mhwX/5ogF/+aK
+        Bf/migX/5osG/+aMBv/mjAX/5owF/+WLBf/liwb/5YoF/+aKBf/miQX/5ogF/+aIBf/nhgX/54UF/+eD
+        Bf/ogQX/6H8E/+h9Bf/pewX/6nkE/+p3BP/rdAT/63EE/+xvBP/sbAT/7WoE/+5mA//vZAP/72ED//Be
+        A//wWwP/8VgD//JVAv/yUgL/808D//RMAv/0SAL/9UUC//ZDAv/2PwL/9z0C/+5JC/vqekYqAAAAAAAA
+        AADifjmB7WkE/+1tBP/rbwT/63IE/+t1BP/qdwT/6XoF/+h8Bf/pfgT/6IEE/+eDBf/nhQX/54YF/+aI
+        Bf/migb/5YsG/+aMBf/ljQX/5Y4F/+WPBf/ljwX/5ZAF/+SQBf/kkAb/5Y8F/+SPBf/ljgX/5Y0G/+WM
+        Bv/miwX/5okF/+aIBf/nhgX/54UF/+iDBP/ogAX/6H4F/+l8BP/pegT/6ncE/+p1BP/rcgT/7HAE/+xs
+        A//taQT/7mYE/+9kA//vYQT/8F0E//BbA//xVwP/8lQD//JRA//zTgL/9EsC//RHAv/1RQL/9kEB//Y/
+        Av/3OwL/5G41iwAAAAAAAAAA33cpv+1sBP/sbwT/63IE/+t0BP/qdwX/6XoF/+l8Bf/pfwX/6IEE/+eE
+        Bf/mhgX/54gF/+aKBf/miwX/5Y4G/+WOBv/kkAX/5ZEG/+WRBf/kkgb/5JMG/+STBv/kkwX/5JMF/+ST
+        Bf/kkgX/5JIG/+WRBf/lkAX/5Y4G/+WNBf/mjAX/5okF/+aIBf/mhgX/54QF/+iCBf/ogAT/6XwF/+p6
+        Bf/qeAX/6nUF/+xyBP/sbwT/7GwE/+1pA//uZgT/7mMD/+9fA//wXQP/8VkD//FWAv/yUwL/81AC//NM
+        Av/0SgL/9EYC//ZDAv/3QAL/9z0C/+NkJscAAAAAAAAAAOBzHuHsbgT/7HIE/+p1BP/qeAT/6XoF/+l9
+        BP/ofwT/6IIE/+eFBf/nhwX/5okF/+WLBv/ljQX/5Y8F/+WQBv/kkgX/5JQF/+SUBv/jlQX/45YF/+OX
+        Bf/jlwX/45YG/+OXBv/klgb/45YG/+OVBv/jlAX/5JMG/+SSBv/lkAX/5Y8F/+aOBf/mjAX/5okF/+aH
+        Bf/nhQX/6IIF/+h/BP/pfQX/6XoE/+p4BP/qdAT/63IE/+xuBP/tawP/7WgE/+5lA//vYgP/718D//Bc
+        A//xWAP/8lUD//NRAv/zTgP/9EsC//RIAv/2RAL/9kEB//c/Av/lWhvlAAAAAAAAAADicBXx63EF/+t0
+        BP/qdwT/6XsE/+h9Bf/ogAT/6IIF/+eGBf/miAX/5osF/+aMBf/ljgX/5JAF/+STBv/jlAb/45YF/+OW
+        Bv/imAb/45kG/+KaBv/jmwb/4psG/+KaBv/imgb/4poG/+KaBv/jmQb/45gG/+OXBf/jlQX/5JQF/+SS
+        Bf/kkAb/5Y4F/+aMBf/migX/54gF/+eGBf/ngwX/6IAF/+l9BP/qegX/6ncE/+p1BP/rcQT/7G4E/+xq
+        BP/uZwP/72UD/+9gBP/wXQP/8VoD//JXAv/yVAP/81EC//NNAv/0SgP/9UcC//ZDAv/2QAL/6VMR9QAA
+        AAAAAAAA5XAO+etzBP/qdwT/6XoE/+l9Bf/ogAX/54IF/+eGBf/miAX/5osF/+WNBf/lkAb/5ZIG/+WZ
+        EP/lqir/67lJ//K+X//0yHP/9c59//fQgf/3z4D/99CA//bQgP/30ID/99CB//fQgf/30IH/99CC//bQ
+        hP/30IT/98+E//fPhP/3zoP/986E//fNhP/3zYP/98yD//fLg//3y4P/+MqD//jKg//5yIL/9sB1//Wz
+        Yf/0qFL/8JIy/+12Df/sbQT/7WoD/+5mBP/uYgT/718D//BcA//xWQP/8VUD//JSAv/zTwL/80sC//RI
+        A//1RAL/9kIC/+1NCvsAAAAAAAAAAORxDvnrdgX/6XkE/+l8Bf/pfwX/54IF/+eGBf/miAX/5osF/+WN
+        Bv/kkAb/5ZwV/+q4R//x4Jr/+PTU//387//++vD//+/T////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////7///79///04f/71Z//855I/+94Ff/taQP/7mQE/+9hA//wXgP/8FoD//FX
+        A//yVAP/81AC//NNAv/0SgL/9UYC//ZDAv/tTwv7AAAAAOeMRyLkcw756ngF/+l7BP/pfgX/54IF/+eE
+        Bf/niAX/5osF/+WNBf/kkAX/6K42//Pnrf////////////////////////////746f//7dD/////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////93rX/85Q+/+5n
+        A//vYwP/72AD//BcA//xWQP/8lUD//NSA//zTwL/9EsC//RIAv/1RAL/7VAK++eARzLiiUFU6nYE/+l6
+        Bf/pfQT/6IEF/+eEBf/mhwX/5ooF/+WNBf/kkAb/67xP//v34f//////////////////////////////
+        /////////vrv////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////25//2qVr/7mUE/+9hBP/wXgP/8FoD//FXA//yUwP/81AD//NNAv/0SQP/9UYC//ZC
+        Af/leTxo34c6gel4BP/pfAX/6IAE/+iDBf/nhgX/5okF/+aNBf/ljwX/6rxP//v44///////////////
+        /////////v33//n01f/48Mb/9O24//Ttuv/55a////fq////////////////////////////++rB//jc
+        mv/85bP//OW0//zltP/85bT//OS0//zktP/85LT//OS0//zis//84rP//OKy//zhsv/74bL//OGz//zj
+        t//96MP//uvN///78v////////////////////////nx//WlWP/vYwT/72AD//BcA//xWAL/8VQD//JR
+        A//0TQL/9EoC//RHAv/1QwL/43Q0kd6FM5/qegT/6H4E/+eBBf/nhQX/5ogF/+WLBf/ljgb/56sy//r2
+        3v//////////////////////9Ou0/+vOZf/lvDX/4bEa/+CrCv/erAb/36wH//HJYv//9uj/////////
+        //////////////TVgv/erAf/36wG/9+qB//fqAj/36YH/+CkB//hogf/4Z8H/+KdB//imgf/45gH/+SU
+        B//kkgb/5Y4F/+WLB//nign/6Y4U/+2WKP/1tWL/+9eh///89//////////////////+8+L/84o3/+9h
+        A//wXQP/8FoD//FVA//yUgP/808C//RLA//1SAP/9UQC/+JvLLXdgi256XwE/+h/Bf/ogwT/5oYF/+WK
+        Bf/ljQX/5ZMJ//HclP/////////////////9/PT/792K/+GqEv/fpwb/36kH/9+rB//frQf/3q4H/96w
+        B//dsQf/78hb///26f//////////////////9eb/8c5u/96uB//erQf/3qoH/9+pB//gpwf/4KQG/+Gi
+        Bv/hnwb/4pwG/+KaBv/jlwb/5JMG/+WQBf/ljQX/5ooG/+eGBf/ngwX/6IAE/+l9Bv/3vXD///bo////
+        //////////////vXqP/vZwr/8F8D//BaA//xVwP/8lMC//JQAv/0TAL/9EkC//VFAv/iaSXJ3YEpx+h+
+        BP/ogQX/54QF/+eIBf/ljAb/5Y8G/+iqMv/9/PD///////////////7/79mG/+CmCP/gpwb/36oH/9+s
+        B//ergb/3a8H/92xB//dsgf/3bMH/920B//tylj//vbn///////////////////89//003z/3a8H/96u
+        Bv/fqwf/36kG/9+mBv/gpAf/4aIG/+GeBv/imwb/45kF/+OWBv/kkgX/5Y8F/+WMBf/miAX/54QF/+iB
+        BP/pfgX/6noE//jAdv///fn//////////////Pf/8447/+9gA//wWwP/8VgD//JVA//yUQP/9E0D//RK
+        Av/1RgL/4mUg2d2AJNXpfwX/6IIF/+aGBf/miQX/5o0F/+WXDv/v0Xr/////////////////9/DI/+Ot
+        Gv/fpgf/36kH/9+rBv/erQf/3rAH/92xB//dswf/3LUH/922B//ctwf/3LcH/+zLVf//9un/////////
+        //////////z2//TUgf/esAf/3q4G/9+rB//fqQf/4KYG/+CkBv/hoAf/4p4G/+ObBv/jmAb/45QG/+WR
+        Bf/mjQX/5okF/+eGBf/nggX/6X8F/+l7Bf/rfxH//N+0//////////////////vLk//xbhD/8FwD//FZ
+        Av/yVQL/8lEC//NNA//0SgL/9UcC/+NhG+XdfyHd6IAF/+iEBf/miAX/5YsF/+WPBv/psD3/9Oiw////
+        //////////78/+3UeP/gpQb/36kG/96rBv/erQf/3a8H/92yB//dtAf/3bYH/9y4B//cuAf/27kI/9y6
+        B//bugj/7MxW///46////////////////////Pf/9tiL/96wB//frgf/36sH/9+oB//gpQf/4KIG/+Kf
+        Bv/inAb/45gG/+OVBv/kkgb/5Y4F/+aLBf/nhwX/54QF/+iABf/pfAT/6nkF//WzYv//+vP/////////
+        ///+5sb/9ptP//BdA//xWgP/8lYC//JSAv/zTgP/9EsD//RIAv/mXhbt3X8e4+iBBP/nhQT/54kG/+aM
+        Bf/lkAX/7chn//n00/////////////v55f/ow0n/4KcG/9+qBv/erQf/3q8H/96yB//dtAf/3LcH/9y4
+        B//bugf/27sI/9u8CP/bvAj/27wH/9u8Cf/qzFL///fp///////////////////89v/12Yf/3a8G/9+s
+        Bv/fqgb/36cG/+CkB//hoAb/4p4G/+KaBv/jlwb/45QG/+WQBf/mjAX/5ogF/+eEBf/ogQT/6X0F/+p5
+        BP/wlTX///Db//////////////Hc//m4d//wXgP/8FoD//JXA//yUwL/8lAC//RMAv/0SAL/51sT8d1/
+        HeXnggX/54YF/+aJBf/mjQX/5ZEG//Dckv/8+uv////////////59dn/5bk0/9+oB//eqwf/3q4G/96x
+        B//ctAf/3bYH/9y4B//bugf/27sH/9q9B//avgf/2r8H/9q/CP/bvgf/2r4I/+nNTf//9uf/////////
+        //////////z3//ffoP/ergn/36sH/+CpB//gpQb/4aIG/+GfBv/imwb/4pgG/+SVBv/kkQX/5o0G/+aJ
+        Bf/nhgX/6IIF/+l+Bf/qewX/7o8q//7t0v/////////////36f/5yY//718D//BbA//xVwP/8lQC//NQ
+        Av/0TAP/9UgC/+daEfXefhnt6IMF/+eHBf/miwX/5Y4F/+SSBv/w2o7//Pnm////////////+fbZ/+W8
+        Nv/fqQf/3qwH/96wB//dsgf/3bUH/9y3B//buQj/27wI/9u+B//avwj/2sEH/9rCCP/awQf/2sEH/9nB
+        B//bvwj/7NJb///25v//////////////////9OD/992X/9+wD//fqQb/4KYH/+CjBv/hoAb/4pwG/+KZ
+        Bv/klQb/5JIG/+WOBf/liwX/54YF/+eCBP/ofwX/6XsE/+6QLP/+7dT/////////////9+j/+sqP/+9g
+        BP/wXAP/8VgD//JUA//yUAL/80wD//RJAv/pWA753n4Y7eeDBP/nhwX/5osF/+SPBv/kkgX/671R//fv
+        w/////////////377v/pzFv/36oG/96uB//dsQf/3bQH/9y2CP/cuAj/27sH/9u9CP/bvwj/2sEI/9rC
+        CP/awwj/2cQI/9vHFf/fzTL/28IN/9q/CP/qy0j///Xj//////////////Xj///25//44qn/4a8S/9+n
+        Bv/gpAb/4aAH/+GdBv/jmQb/45YG/+SSBv/ljgX/5YsF/+eHBf/ngwX/6H8F/+l8Bf/ypEb///Tk////
+        /////////e/X//izbf/wYAP/8FwD//BYA//yVAP/81ED//RNA//0SQP/6VcO+d5/GO3nhAX/54cF/+aL
+        Bf/kjwX/5JMF/+WgE//z4Z3/////////////////8OCS/9+sCf/ergf/3bEH/920B//ctwf/3LkI/9u8
+        CP/avgj/2sAH/9rCB//Zwwf/2cUI/9nGDf/t5Ir//Prq/+TWVP/awAj/2r8I/+rIQv/9893/////////
+        //////////////jdnv/irRT/4KQH/+ChBv/hngb/4poF/+OWBv/kkwb/5I8F/+aLBf/mhwX/6IMF/+iA
+        BP/pfAX/98J9///+/f////////////vYqv/zjDj/72ED//BcA//xWQP/8lUD//JRA//zTQL/9EkC/+lY
+        D/fffhfv54QF/+eIBf/miwX/5Y8F/+STBv/jmAb/68li//////////////////v34P/kw0D/3q8H/92x
+        B//ctAf/3LcH/9u6CP/bvQf/2r4H/9rBCP/axAj/2cUI/9zKF//r4oH//v75///////6+OL/6Nph/9vB
+        Ef/avAf/5sQx//7v0f//////////////////////+dub/+SsG//hoQb/4p4G/+KaBv/jlgb/45MG/+WP
+        Bf/liwX/5ocF/+eEBf/ogAX/7ZEp//3u1v/////////////////1rmX/7mcI/+9hBP/vXAP/8VgC//FV
+        A//yUQP/804C//RKAv/rVQz7334V8+eEBf/miAX/5owF/+SPBf/kkwb/45YF/+SmHP/59tv/////////
+        ////////9u/A/+K6JP/dsQf/3bQH/9y4B//bugj/2r0H/9q/B//ZwQf/2cMH/9/NKf/x6aH/////////
+        //////////////377P/dxiH/270H/9u6B//mwzP//OzL///////////////////////84q7/6LEv/+Ke
+        Bv/imgb/45YF/+STBv/ljwb/5owF/+aIBf/ohAT/644e//zdsP//////////////////9+n/8H8j/+5k
+        A//vYAT/8F0D//FZA//xVQP/8lED//NNAv/0SgL/7FQL+99+FvHngwX/5ogF/+aLBv/lkAX/5JMG/+OX
+        Bv/imwj/6MZc//7++//////////////////28MT/6MxQ/920B//ctwj/27kH/9q8CP/bvwf/2sEH/+na
+        ZP/38sX/9vTR//////////////////v55f/p3XD/28EP/9u9CP/bugf/3LcH/+a/L//868b/////////
+        //////////////7u0P/wv1b/4poG/+OXBf/kkwb/5Y8G/+WMBf/miAX/8atI//zjvP//////////////
+        ////////97Vv/+1rB//uZAP/72ED//BdA//wWAP/8lUD//JRA//0TQP/9EkC/+xUC/vefxnt6IQF/+eH
+        Bf/liwX/5Y8G/+SSBv/jlgb/4poG/+KhC//z5q3///////////////////////z66v/x5p3/6tlw/+fT
+        Vv/o1Vj/6910//Hppv/8++3///////////////////////r44P/l1VL/2sEI/9q/CP/buwj/3LkH/9y2
+        CP/dtAf/5Lsm//vovf////////////////////////nu//naoP/1x3L/8bhS//K3Uv/0wGz/+dSW///1
+        5f///////////////////////OC4/+11Ef/uaAT/7mQE/+9gA//wXQP/8VkC//FVAv/zUQP/800D//RK
+        A//sVAv73n4Z7eiDBf/nhwX/5osF/+WPBv/kkgb/5JYF/+KZBv/hnQb/468k//Trtf//////////////
+        ///////////////+/P/8+uv//Pvt/////v////////////////////////////Tut//i0D3/2sEH/9q/
+        CP/bvQj/27sH/9u4B//dtgf/3bQH/92wB//jtiH/+uGs//////////////////////////////79///3
+        6f//9+r///35/////////////////////////////uTC//CKKv/tawP/7WcE/+5kBP/vYAP/8FwD//FY
+        A//yVAL/8lAC//RNAv/0SgL/6lUN+d5+Gu3nggT/5oYF/+WKBf/ljgX/5ZEF/+SVBf/jmQb/4p0G/+Gf
+        Bv/jryT/8ean/////////////////////////////////////////////////////////////////+/l
+        k//eyCD/2sAI/9q/B//bvQf/27wI/9u5B//ctwf/3bUH/92yB//drwf/3q0G/+KwGP/204j/////////
+        ////////////////////////////////////////////////////////+tOd/+6IJP/scAT/7GsE/+5n
+        BP/uZAT/718D//BbA//xWAP/8lQD//NQAv/zTAP/9UkD/+lXD/fdfx3l54IE/+eGBP/migX/5Y0F/+WR
+        Bv/jlQb/45gF/+KbBf/hngb/4aIH/+GtFf/oylb/9/DD////////////////////////////////////
+        ////////9vHH/+XVVf/cwxX/2r8I/9u+B//avQj/27wH/9u6CP/cuAf/3LUH/9y0B//dsQf/3q4H/9+s
+        Bv/fqAb/4akQ/+28TP/85Lf////////////////////////////////////////////+6Mb/9K9Z/+yB
+        FP/rcwT/7G8E/+xrBP/tZwP/72MD//BfA//wWwP/8VcC//JUAv/zTwP/80wC//VIAv/pVw/33X4e4+iB
+        Bf/nhQX/5ogF/+WMBv/lkAb/5JMG/+OXBf/jmgb/4p0G/+GhBv/gpAb/4KcH/+GzGf/lwz//7+CJ//bw
+        wf/28sj/9/PI//jxyf/z5qD/4cs1/93CHP/bvAj/270I/9u8CP/avAf/3LsI/9u6CP/cuAf/3bYH/9y0
+        B//dsQf/3bAH/96tB//fqgb/36cH/+CjB//hoAf/5aQX/+uzPf/41Y///ejA//7u0v/+7dD//eS8//nR
+        kf/vo0D/7IoY/+p5BP/qdgX/7HIE/+xuBP/tagT/7WYE/+5iBP/vXwP/8VoD//FXA//yUwP/81AC//RM
+        Av/0SAL/6FgQ991/It3ogAX/6IQF/+eHBf/ligX/5Y4G/+SSBv/jlQb/45kF/+KcBf/hnwb/4KIG/+Cm
+        B//gqAf/36sH/9+vC//305r///37////////+/n/9dCK/9u4B//cuQf/27oI/9u6B//cugf/27kH/9y5
+        B//ctwf/3LUH/920B//dsgf/3a8H/96tB//fqwf/4KkG/+ClBv/howb/4qAG/+KcBv/jmQb/5JkL/+aZ
+        E//nlhP/6JIS/+iNEP/piAv/6IAF/+l8BP/peAT/6nUF/+xwBP/sbAT/7WkE/+5lBP/uYgP/714D//Ba
+        Av/xVgP/8lID//NPAv/0SwL/9EgC/+dYEvPdfybP6H4E/+eCBf/mhgX/5okF/+WNBf/lkQb/5JQF/+OX
+        Bv/imgb/4p4H/+GhBv/gpAb/4KcH/9+pB//eqwf/779h///59f////////////7u4v/jvCX/3LYH/9y3
+        B//ctwf/3LcH/9y3B//ctgf/3LUH/9y0B//dsQf/3bAH/96tB//erAb/36kG/+CmBv/gpAb/4aEG/+Gd
+        Bv/jmgb/5JkL/+aYEf/lkwr/5Y4H/+aMCf/mhgX/54IF/+h+BP/pewT/6ncE/+t0BP/scAT/7GwE/+1o
+        A//uZAP/72AE//BcA//xWQP/8VUD//JRAv/zTgP/9EoC//VHAv/lXRjr3oAqw+l9Bf/ogQX/54UF/+aI
+        Bf/liwX/5Y8F/+SSBf/klQb/4pkG/+GbBv/inwb/4aEG/+ClBv/fpwb/36kG/+KyHv//8OX/////////
+        ////+/j/9c6K/920B//ctQf/3bQH/9y0B//ctAf/3bMH/92yB//dsQf/3rAH/9+uB//erAf/36kG/9+n
+        B//gpAb/4aIG/+GfBv/inAb/45gG//S5a//94sj/+MeT//S7fv/1voH/6owY/+iBBP/pfQT/6nkE/+p2
+        Bf/rcgT/7G4E/+xrBP/uZwP/7mMD/+9fA//wXAP/8VgD//JUA//zUAP/800C//RJAv/1RgL/5F8b5d2A
+        LrnpfAT/6X8F/+iDBf/nhgX/5ooF/+WNBf/lkAb/5JMG/+OWBf/jmQb/4p0G/+GgBv/hogb/4KUH/+Cn
+        B//fqQf/+M2T//////////////////7v5P/luzD/3rIH/92xB//dsgb/3bEH/92xB//dsAf/3q4H/9+t
+        B//fqwf/36kG/+CmB//gpAf/4KIH/+GfBv/hnAb/4pkG/+ehIv/+5dP//////////////////dvD/+iE
+        CP/ogAT/6XwF/+p4Bf/rdAT/7HAE/+xtA//taQT/7mUE/+9iA//wXgP/8FoD//FXA//yVAL/81AD//RM
+        A//0SAL/9UUC/+NiH93egjOj6noE/+h+Bf/ogQT/54UF/+aIBf/miwX/5Y4F/+SRBv/klQb/45cG/+Kb
+        Bv/inQb/4Z8G/+GiB//gpAb/4KYH/+exMv//8+v/////////////////+ty5/+K1G//erwf/3q4G/96u
+        Bv/erQf/3qwH/9+rB//fqgb/36gG/+CmBv/hpAb/4KIG/+GfBv/inQb/4poG/+abFv/70aj/////////
+        //////////fw//CfQP/ogQX/6X0F/+p6Bf/qdwT/63ME/+xvBP/tbAT/7WgE/+9kA//vYQP/8F0D//BZ
+        A//yVgL/8lMC//NPAv/0SwP/9EcC//VEAv/jZCPR4IQ6h+p4BP/pfAX/6IAF/+eDBf/mhgX/5ooF/+aM
+        Bf/ljwb/5JMG/+SVBf/imAb/4poG/+GdBv/hnwb/4aIG/+CjBv/gpQb/9sqG////////////////////
+        ///60Kf/47Ai/9+rB//fqwf/36oH/9+pB//fqAf/36cG/+ClBv/hpAb/4aIH/+GfBv/hnQb/4poG/+eg
+        Hv/70aX///////////////////////jImv/ngwX/6IAF/+l8BP/qeAX/6nUE/+tyBP/sbgP/7WoE/+1m
+        BP/uYwP/8F8D//FcA//xWAP/8VUC//JRA//zTgP/9EoC//VGAv/1QwL/42cov+KHQFrqdwX/6noF/+l9
+        Bf/ogAX/54QF/+aHBf/migb/5Y0G/+WQBv/kkwb/5JYG/+OYBv/imgb/4Z0G/+GeBv/hoQb/4KMG/+Oo
+        Ff/83L7///////////////////////zfwv/uu1T/4KcH/9+nBv/fpgf/4KUH/+CkB//hogb/4aAG/+Gf
+        Bv/inQb/4poG/+ytSP/7273///////////////////////7kz//qjx7/6IEE/+l9Bf/pegX/6nYF/+pz
+        BP/sbwT/7GwD/+1pBP/vZQP/72ED/+9dA//wWwP/8lcD//JTA//zTwP/9EwD//RIAv/1RQL/9kIC/+Nu
+        MZ/mikky43MT9ep4BP/pfAT/6H8E/+iCBf/ohQT/5ogG/+WKBf/mjgX/5JAG/+STBv/klgb/4pcG/+OZ
+        Bv/inAb/4p4G/+KfB//hoQf/6K4w//3jzf////////////////////////Xt//rRnv/vu1r/5qok/+Ci
+        Bv/hoAf/4Z8G/+KeBv/npCL/8LZY//rOm///7+P///////////////////////3m1P/tmzX/54IF/+h+
+        BP/pewT/6ngF/+t0BP/scgT/7G4E/+xqBP/uZgP/72MD/+9gA//wXQP/8VkD//JVA//yUQL/804D//NL
+        A//0RwL/9UQC//ZBAv/kcjiBAAAAAONxE/XqdgT/6XkE/+l8Bf/ogAT/54MF/+eFBf/miAX/5osF/+WN
+        Bf/lkAX/5JMF/+OUBv/jlgb/4pgG/+KbBv/inAb/4p0G/+GeBv/prTb//OHI////////////////////
+        //////////Ts//3iyf/83br/+9ar//vWq//827n//eLJ///07P////////////////////////////3k
+        z//unz7/54IF/+h/Bf/pfAX/6XkE/+t1BP/scgT/7G8E/+xsA//taAP/7mUD/+9iA//vXgP/8VoD//FX
+        Av/yVAP/81AC//RMA//0SQP/9UYC//VDAv/2PwL/53hCTgAAAADjbxP163ME/+p2Bf/qegX/6XwE/+h/
+        Bf/nggX/54UF/+aIBf/miwX/5Y4F/+SQBv/kkgb/5JQF/+SWBv/jlwb/4pkG/+KbBv/imwX/4pwG/+io
+        Kf/60qL/////////////////////////////////////////////////////////////////////////
+        //////////////vUsP/tmDD/54MF/+h/Bf/pfQT/6XoE/+t3BP/rcwX/7HAE/+xtBP/tagT/7WYE/+5j
+        A//vXwP/8FwD//FZA//yVgP/81ID//NOAv/0SwL/9EgC//VEAv/1QgL/7UsL++t6RiIAAAAA424T9etx
+        BP/rdAX/6ncE/+p7BP/ofQX/6IAF/+eDBf/nhQX/54gF/+aKBf/mjAX/5Y8F/+SQBv/kkgb/45QG/+OW
+        Bv/jlwb/45gF/+KZBv/imQb/5Z8U//C2W//+6NT/////////////////////////////////////////
+        /////////////////////////evb//KvY//qjhj/6IIE/+iABf/ofQX/6noF/+t3Bf/qdAT/7HEE/+xu
+        BP/tawP/7WgE/+5lA//vYAP/714D//FbA//yVwP/8lMD//JRAv/zTQP/9EkC//RGAv/2QwL/9kAC/+1K
+        DPsAAAAAAAAAAOFvHuXsbwT/63IF/+p0BP/qeAX/6XoE/+l9Bf/ogAX/54IF/+eFBf/nhwX/5okF/+aL
+        Bf/mjQX/5Y8F/+SQBv/kkgX/5JMF/+SUBv/jlQb/45YG/+OWBf/jlwb/558d/+6wVP/60KL//uzd////
+        ///////////////////////////////27v/71rL/87Fj/+qTIP/nhQX/54IF/+iABf/pfQT/6noF/+p4
+        Bf/rdQT/7HIE/+xuBP/tbAP/7WkD/+5lBP/vYgT/8F8D//BcA//xWAP/8VUC//JSA//zTwL/9EsC//VI
+        Av/1RQL/9kEB//c/Av/tSQz5AAAAAAAAAADgcyfJ7GwE/+xvBP/rcgT/6nUE/+p3BP/pegX/6X0E/+l/
+        Bf/ngQX/54QF/+eGBf/miAX/5ooG/+aMBf/ljQX/5Y8G/+WQBf/lkQX/5JEF/+SSBf/kkgX/5JMG/+ST
+        Bv/kkwX/5ZUN/+qgK//xtFv/98WK//vOof/6zJ7/+MSL//OzY//toDv/6IwP/+aHBv/ohAX/6IEF/+iA
+        BP/pfAT/6XsE/+p4Bf/qdAT/63EE/+xvBP/sbQT/7WkE/+5mBP/vYwT/72AD//BcA//xWQP/8VYD//JT
+        Av/zUAL/9E0C//RJAv/1RgL/9kQB//ZAAv/3PQL/6FEV7wAAAAAAAAAA4Xg0n+1pA//sbAT/7G8E/+xy
+        BP/rdAT/6ncE/+p6BP/pfAT/6X8E/+iBBf/nggX/54UF/+eGBf/miQb/5ooG/+aLBf/ljAb/5Y0F/+WN
+        Bv/ljgX/5ZAF/+WPBf/kjwX/5ZAF/+WPBf/ljwX/5Y4F/+WNBf/ljAX/5osG/+aKBf/miAX/5ocF/+eF
+        Bf/ngwX/6IEE/+h+BP/pfAT/6noF/+p3BP/qdAT/63IE/+tvBP/sbAP/7WoD/+5mBP/uZAP/72ED//Bd
+        A//xWgP/8VcD//JUAv/yUQP/804C//RKA//1SAL/9UQC//ZBAv/3PwL/+DwB/+VZINcAAAAAAAAAAOV+
+        QVTlZxP17WoE/+xtBP/sbwT/7HIE/+t1BP/rdgT/6nkF/+l7BP/pfQX/6H8F/+iBBf/ngwX/6IUF/+eG
+        Bf/miAX/5ogF/+aJBf/migb/5osF/+aLBf/miwX/5owF/+aMBv/miwb/5ooF/+aKBf/miQX/5ogF/+aH
+        Bf/nhgX/54UF/+eDBf/ogQX/6H8E/+l9Bf/pewX/6nkE/+p3Bf/rdAT/63IE/+xvBP/sbQT/7WkD/+1n
+        BP/uZAT/72ED//BeBP/wWwP/8VgD//FUAv/yUgP/808D//RMAv/0SQL/9UYC//ZCAv/2QAL/9zwC//g6
+        Av/lZTCjAAAAAAAAAAAAAAAA5WUS9e1mA//taQT/7GwE/+xuBP/scQT/63QF/+p2BP/peAX/6XoE/+l8
+        BP/pfQX/6X8F/+iBBP/oggX/6IQF/+eFBf/nhgX/5oYF/+aHBf/mhwX/54gF/+eHBv/niAX/5ocF/+eH
+        Bf/nhgX/54YF/+eFBf/ohAT/54MF/+iBBP/pfwX/6H4E/+l7BP/peQT/6ngF/+t2Bf/rcwT/7HEE/+xv
+        BP/tbAT/7WkE/+1mA//uZAT/72ED//BfA//wWwP/8VgC//JWA//yUgP/81AD//NMAv/0SQL/9UcD//VD
+        Av/2QAL/9z4C//c7Av/uRAz76XFCRgAAAAAAAAAAAAAAAORkFvHuZAP/7mYE/+1pA//sbAP/7G4D/+xw
+        BP/rcgT/63QE/+p2BP/qeAX/6nsF/+l7BP/ofQT/6X8F/+mABf/ogQX/6IIE/+iCBf/ngwX/54QF/+eE
+        Bf/nhAX/54QF/+eDBf/nhAX/6IIF/+iCBP/ogQX/6IAF/+h/Bf/pfQX/6XwE/+p6Bf/peAX/63cF/+t1
+        Bf/rcgT/63EE/+xuBP/sbAT/7WkD/+5mBP/uZAP/72ED/+9fBP/wWwP/8FkD//JWA//yUwP/81AD//NN
+        Av/0SgP/9UcC//ZFAv/2QQL/9z8C//c8Av/3OgH/70ML+wAAAAAAAAAAAAAAAAAAAADibCnD72ED/+5k
+        A//uZgT/7mgD/+1rA//sbQP/7G8E/+xxBP/rcwT/6nQE/+p3BP/peAX/6XoE/+p7Bf/pfAT/6X0E/+h+
+        Bf/ofwT/6H8F/+h/Bf/ogAX/6IAF/+iABf/ofwX/6H8F/+h+Bf/ofgX/6X0E/+l8Bf/pewX/6noE/+p4
+        BP/qdgT/6nUE/+pzBP/scQT/7G8E/+xsBP/sawT/7WgD/+5mBP/uYwP/72ED/+9eBP/wXAP/8FkD//JX
+        A//yUwP/8lEC//NOA//zSwL/9EkC//VFAv/1QgL/9kAC//c9Af/3OgL/+DgC/+hNGOkAAAAAAAAAAAAA
+        AAAAAAAA53lCVOdgEvXvYAP/72ID/+5lBP/taAP/7WkE/+1sA//tbgT/7G8E/+txBP/rcwT/63UF/+t2
+        Bf/qdwT/6XgF/+l5BP/qegT/6XsF/+l8Bf/pfAX/6XwF/+l8BP/pfAX/6XwE/+l7BP/pewX/6XsE/+l6
+        BP/peQT/6ncE/+p2BP/rdAX/63ME/+xyBP/scAT/7G4E/+1sA//tagT/7WcD/+5lA//vYwT/72AD/+9e
+        BP/wWwP/8VkD//JXA//yVAL/81EC//NOA//0SwL/9EkC//RGAv/2QwL/9kAC//c+Av/3OwL/9zgB/+9C
+        C/vmYjGfAAAAAAAAAAAAAAAAAAAAAAAAAADmXxbv710D/+9fA//uYgP/7mUD/+5mA//taQP/7WoE/+xs
+        BP/sbQT/63AE/+xwBP/rcgX/63QE/+t0BP/qdgT/63YE/+p3BP/qeAX/6ncE/+l5BP/qeAX/6ngE/+p4
+        BP/qeAX/6ncF/+p2Bf/rdgT/63UF/+t0BP/rcgT/63AE/+xwBP/tbgT/7GwE/+1qA//uaAT/7mYE/+5k
+        BP/uYgP/72AD/+9eA//wWwP/8VkD//FWA//yVAP/8lED//NOAv/0TAL/9EkC//VHAv/1RAL/9kEC//c+
+        Av/3PAL/+DkB//k2Av/vQQz5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5nQ9budcEvXwXQP/8F8D/+9h
+        A//uYwP/7mUE/+1nA//taAP/7WoE/+xrBP/sbQP/7G8D/+xvBP/rcQT/7HEE/+tzBP/rcwT/63QE/+p0
+        BP/qdAX/63QE/+t0BP/qdAX/63QE/+tzBf/rcgT/7HEE/+xxBP/sbwT/7G8D/+xtBP/tbAP/7WsE/+1o
+        A//uZgT/7mUE/+9jBP/vYQT/8F8E//BdA//wWwP/8FgD//FVA//yUwP/81EC//NOAv/0TAP/9EkC//VH
+        Av/2RAL/9kEB//c/Av/3PAL/+DkC//g3Af/wQQv75l4vpwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADiai25510S9fBbA//wXQP/8GAD/+9hBP/uYwP/7mUD/+5nA//uaAP/7WoE/+xrBP/tbAP/7W0E/+xu
+        BP/sbgT/7G8E/+xwBP/scAT/7HAE/+twBP/rcAT/7HAE/+xwBP/sbwT/7G8E/+xuBP/tbAT/7WwD/+1r
+        BP/taQT/7WgE/+1nA//uZQT/72ME/+9hA//wXwP/8F4D//BbA//wWgP/8VcD//FVA//zUwP/8lAD//NO
+        Av/0TAL/9EkC//RGAv/1RAL/9kIB//Y/Av/3PAL/+DoB//g3Av/wQQv751Af2QAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOVxOYHnXBPz510S9fBcA//vXgP/72AE/+9hBP/vYwP/7mQD/+5m
+        A//uZwP/7WgE/+1pA//tagP/7WoE/+xrBP/tawT/7GwE/+xtBP/tbQT/7WwE/+xsBP/sawT/7WsE/+1r
+        BP/tagT/7WkD/+5oBP/tZwP/7mYE/+5kA//vYwP/72IE/+9fA//wXgP/8FwD//FaA//xWAP/8lYD//FU
+        A//yUgP/808C//NNAv/0SwL/9EkC//VGAv/1RAL/9kEB//Y/Av/3PAH/9zsB/+5DDPnsRA/35mEymQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOVyOoHjYyDd510S9eZg
+        E/XvXgP/8F8D/+5hA//vYgT/72ME/+5lA//uZgP/7mYD/+5nA//taAT/7mgE/+5oBP/taAP/7WkE/+5p
+        A//taAP/7mcE/+5oA//uZwT/7mYD/+5lA//uZAP/7mMD/+9iA//vYAT/8GAD/+9eA//wXQP/8FoD//FZ
+        A//xVwL/8lUD//JTAv/yUQL/808D//NNAv/0SgL/9UgC//VGAv/1QwL/9kEB//Y/Av/uSA357UcN+eZU
+        H9nmZziBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADqfEgi43Q5h+JtK7/iaCDd5WQW8eVkE/XlZRP15WYT9e9iA//uYwP/7mMD/+5k
+        BP/vZAP/7mQE/+9kA//vZQT/7mQD/+5kA//vZAT/72ME/+5iA//vYgT/72AE//BfA//wXgP/710D//Bc
+        A//wWgP/8VkD//FXA//yVQP/8lQC//JSA//zTwL/804D//NMAv/qVQ7561IO+exQDfnpUhLz5Vkd4eRh
+        Kb/mbDiB7HhMEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOiA
+        RjrlfkBi4nk4i+F3M6Phcyy/4XEnzeBxJdHibyHd4msb5+NpGO3jahjt5GkX8eRoFvHkZhTz5mUT9eZl
+        EvXkZxbx5WYW8eVkFfHlYxXx5GQY7eNmHOXiZx7f42gi1+JqJsnibCu74m8xo+N0OYHmd0Ba6ntHKgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA///wAAAH////8AAAAAAH//8AAAAAAAB//AAAAAAAAB/wAAAAAAAAD/AAAAAAAAAH4AAAAAAA
+        AAfgAAAAAAAAA8AAAAAAAAADwAAAAAAAAAPAAAAAAAAAA4AAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAA
+        AAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA
+        AAAAAAAAgAAAAAAAAACAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAYAAAAAAAAABgAAAAAAA
+        AAHAAAAAAAAAAcAAAAAAAAADwAAAAAAAAAPAAAAAAAAAA+AAAAAAAAAD4AAAAAAAAAfwAAAAAAAAB/AA
+        AAAAAAAP+AAAAAAAAB/+AAAAAAAAf//gAAAAAAf////gAAAH//8=
+</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>参数配置</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmConfig</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>CCWin.CCSkinMain, CSkin, Version=16.1.14.2, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>
