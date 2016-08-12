@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 using CCWin;
 using COSUpLoadFile.CosApi.API;
+using COSUpLoadFile.Common;
+using XPTable;
+using XPTable.Models;
 
 namespace COSUpLoadFile
 {
     public partial class frmMain : CCSkinMain
     {
         #region 定义变量与常量区
-        object _thread=null;
+        private object _thread=null;
+        private int pagesize = 199;
         #endregion
 
         #region 初始化函数
@@ -27,7 +31,31 @@ namespace COSUpLoadFile
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            initFolderList();
             Bind_lvbucketlist();
+        }
+
+        /// <summary>
+        /// 初始化目录列表
+        /// </summary>
+        private void initFolderList()
+        {
+            FolderList.ColumnModel = FolderListcolumnModel;
+            FolderList.TableModel = FolderListtableModel;
+            //定义列表头
+            FolderListcolumnModel.Columns.Add(new ImageColumn("文件名"));
+            FolderListcolumnModel.Columns.Add(new TextColumn("大小"));
+            FolderListcolumnModel.Columns.Add(new TextColumn("自定义权限"));
+            FolderListcolumnModel.Columns.Add(new TextColumn("创建时间"));
+            FolderListcolumnModel.Columns[0].Width = 240;
+            FolderListcolumnModel.Columns[1].Width = 120;
+            FolderListcolumnModel.Columns[2].Width = 100;
+            FolderListcolumnModel.Columns[3].Width = 180;            
+            FolderListtableModel.RowHeight = 24;
+            //END
+            
+            //FolderList.Update();
+            
         }
         #endregion
 
@@ -58,53 +86,14 @@ namespace COSUpLoadFile
 
         #endregion
 
+        #region 读取主目录
         private void btnReadPathTitle_Click(object sender, EventArgs e)
         {
-            List<FolderProperty> getdata = GetFolderData(CurbucketName, path, pagesize, "", 0, FolderPattern.Both);
-            if (getdata == null)
-            {
-                //MessageBox.Show("获取目录出错!");
-                lvdata.Items.Clear();
-                return;
-            }
-            //36, 39, 43
-            //219
-            lvdata.Items.Clear();
-            lvdata.BeginUpdate();
-            ListViewItem lvitemsh = new ListViewItem();
-            lvitemsh.SubItems[0].Text = "..";
-            lvitemsh.StateImageIndex = 0;
-
-            lvitemsh.Tag = "-1";
-            lvdata.Items.Add(lvitemsh);
-            foreach (FolderProperty fp in getdata)
-            {
-                ListViewItem lvitem = new ListViewItem();
-                lvitem.SubItems[0].Text = fp.name;
-                //文件属性sha必定有值,文件夹无
-                if (!String.IsNullOrEmpty(fp.sha))
-                {
-                    //lvitem.SubItems[0].Text += imageList1.Images["folder-icon.png"].ToString();
-                    lvitem.StateImageIndex = 1;
-                    lvitem.Tag = "1";
-                    lvitem.SubItems.Add(Function.FormatCapacity(fp.filesize));
-                }
-                else
-                {
-                    lvitem.StateImageIndex = 0;
-                    lvitem.Tag = "0";
-                    lvitem.SubItems.Add("--");
-                }
-
-                lvitem.SubItems.Add("--");
-                lvitem.SubItems.Add(Function.ConvertIntDateTime(fp.ctime).ToString());
-                lvitem.SubItems.Add("");
-                lvdata.Items.Add(lvitem);
-            }
-            lvdata.EndUpdate();
-            lblfolderpath.Text = "/" + CurbucketName + path;
-            //txtbox.Text = getdata[0].mtime + "=" + Function.ConvertIntDateTime(getdata[0].mtime);
+            Function.ReadMainFolder("/", FolderListtableModel,FolderShowImg, CurbucketName);
+            
+            //END
         }
+        #endregion
 
         private void btnUpFileTitle_Click(object sender, EventArgs e)
         {
@@ -120,11 +109,13 @@ namespace COSUpLoadFile
             if (bucketName.IndexOf(',') > 0)
             {
                 bucketNames = bucketName.Split(',');
-                lvBucketList.Clear();
-                lvBucketList.BeginUpdate();
-                lvBucketList.HideSelection = false;
+                BuckettableModel.Rows.Clear();
+                BuckettableModel.RowHeight = 30;
+                //lvBucketList.HideSelection = false;
                 for (var bucketName_i = 0; bucketName_i < bucketNames.Length; bucketName_i++)
                 {
+                    BuckettableModel.Rows.Add(new Row());
+                    BuckettableModel.Rows[bucketName_i].Cells.Add(new Cell(bucketNames[bucketName_i]));
                     ListViewItem lvitembucket = new ListViewItem();
                     lvitembucket.SubItems[0].Text = bucketNames[bucketName_i];
                     if (bucketName_i == 0)
@@ -135,23 +126,23 @@ namespace COSUpLoadFile
                     lvitembucket.SubItems[0].ForeColor = Color.Black;
                     //lvitembucket.SubItems[0].BackColor = Color.Black;
                     lvitembucket.Tag = bucketName_i;
-                    lvBucketList.Items.Add(lvitembucket);
+                    //lvBucketList.Items.Add(lvitembucket);
                 }
-                lvBucketList.EndUpdate();
+                //lvBucketList.EndUpdate();
             }//END
             else
             {
-                lvBucketList.Clear();
-                lvBucketList.BeginUpdate();
+                //lvBucketList.Clear();
+                //lvBucketList.BeginUpdate();
                 ListViewItem lvitembucket = new ListViewItem();
-                lvitembucket.SubItems[0].Text = bucketName;// CurbucketName;
-                lvitembucket.StateImageIndex = 0;
-                lvitembucket.SubItems[0].BackColor = Color.White;
+                //lvitembucket.SubItems[0].Text = bucketName;// CurbucketName;
+                //lvitembucket.StateImageIndex = 0;
+                //lvitembucket.SubItems[0].BackColor = Color.White;
                 //itembucket.SubItems[0].;
 
-                lvitembucket.Tag = "0";
-                lvBucketList.Items.Add(lvitembucket);
-                lvBucketList.EndUpdate();
+                //lvitembucket.Tag = "0";
+                //lvBucketList.Items.Add(lvitembucket);
+                //lvBucketList.EndUpdate();
             }
         }
         #endregion
@@ -209,6 +200,42 @@ namespace COSUpLoadFile
         }
         #endregion
 
-        
+        #region 未定
+        private delegate string InvokeGetbucketName();
+        public string CurbucketName
+        {
+            get
+            {
+                return ReadCurbucketName();
+            }
+            set
+            {
+                GlobelSet._curbucketName = value;
+            }
+        }
+
+        private string ReadCurbucketName()
+        {
+            return "";
+            //if (lvBucketList.InvokeRequired)
+            //{
+            //    return lvBucketList.Invoke(new InvokeGetbucketName(ReadCurbucketName)).ToString();
+            //}
+            //else
+            //{
+            //    var obj = lvBucketList.SelectedItems[0];
+            //    if (obj.Text != "" || obj == null)
+            //    {
+            //        return lvBucketList.SelectedItems[0].Text;
+            //    }
+            //    else
+            //    {
+            //        return "mybucketName";
+            //    }
+            //}
+        }
+        #endregion
+
+
     }
 }

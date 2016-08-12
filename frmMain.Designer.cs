@@ -30,19 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinSplitContainer1 = new CCWin.SkinControl.SkinSplitContainer();
-            this.lvBucketList = new CCWin.SkinControl.SkinListView();
             this.skinSplitContainer2 = new CCWin.SkinControl.SkinSplitContainer();
-            this.skinListView2 = new CCWin.SkinControl.SkinListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.skinProgressBar1 = new CCWin.SkinControl.SkinProgressBar();
             this.Lblcurpathvalue = new CCWin.SkinControl.SkinLabel();
             this.Lblcurpathtitle = new CCWin.SkinControl.SkinLabel();
             this.BtnClearUpFilesTitle = new CCWin.SkinControl.SkinButton();
@@ -50,11 +40,24 @@
             this.btnReadPathTitle = new CCWin.SkinControl.SkinButton();
             this.BtnWFNtitle = new CCWin.SkinControl.SkinButton();
             this.btnUpFileTitle = new CCWin.SkinControl.SkinButton();
+            this.textColumn1 = new XPTable.Models.TextColumn();
+            this.textColumn2 = new XPTable.Models.TextColumn();
+            this.textColumn3 = new XPTable.Models.TextColumn();
+            this.FolderListcolumnModel = new XPTable.Models.ColumnModel();
+            this.FolderListtableModel = new XPTable.Models.TableModel();
+            this.FolderList = new XPTable.Models.Table();
+            this.FolderShowImg = new System.Windows.Forms.ImageList(this.components);
             this.skinTabControl1 = new CCWin.SkinControl.SkinTabControl();
             this.skinTabPage1 = new CCWin.SkinControl.SkinTabPage();
             this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
-            this.skinProgressBar1 = new CCWin.SkinControl.SkinProgressBar();
-            this.skinMenuStrip1.SuspendLayout();
+            this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BucketcolumnModel = new XPTable.Models.ColumnModel();
+            this.BucketList = new XPTable.Models.Table();
+            this.BuckettableModel = new XPTable.Models.TableModel();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).BeginInit();
             this.skinSplitContainer1.Panel1.SuspendLayout();
             this.skinSplitContainer1.Panel2.SuspendLayout();
@@ -63,84 +66,11 @@
             this.skinSplitContainer2.Panel1.SuspendLayout();
             this.skinSplitContainer2.Panel2.SuspendLayout();
             this.skinSplitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FolderList)).BeginInit();
             this.skinTabControl1.SuspendLayout();
+            this.skinMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // skinMenuStrip1
-            // 
-            this.skinMenuStrip1.Arrow = System.Drawing.Color.Black;
-            this.skinMenuStrip1.Back = System.Drawing.Color.White;
-            this.skinMenuStrip1.BackRadius = 4;
-            this.skinMenuStrip1.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
-            this.skinMenuStrip1.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
-            this.skinMenuStrip1.BaseFore = System.Drawing.Color.Black;
-            this.skinMenuStrip1.BaseForeAnamorphosis = false;
-            this.skinMenuStrip1.BaseForeAnamorphosisBorder = 4;
-            this.skinMenuStrip1.BaseForeAnamorphosisColor = System.Drawing.Color.White;
-            this.skinMenuStrip1.BaseHoverFore = System.Drawing.Color.White;
-            this.skinMenuStrip1.BaseItemAnamorphosis = true;
-            this.skinMenuStrip1.BaseItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.BaseItemBorderShow = true;
-            this.skinMenuStrip1.BaseItemDown = ((System.Drawing.Image)(resources.GetObject("skinMenuStrip1.BaseItemDown")));
-            this.skinMenuStrip1.BaseItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.BaseItemMouse = ((System.Drawing.Image)(resources.GetObject("skinMenuStrip1.BaseItemMouse")));
-            this.skinMenuStrip1.BaseItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.BaseItemRadius = 4;
-            this.skinMenuStrip1.BaseItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinMenuStrip1.BaseItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.skinMenuStrip1.Fore = System.Drawing.Color.Black;
-            this.skinMenuStrip1.HoverFore = System.Drawing.Color.White;
-            this.skinMenuStrip1.ItemAnamorphosis = true;
-            this.skinMenuStrip1.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.ItemBorderShow = true;
-            this.skinMenuStrip1.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.skinMenuStrip1.ItemRadius = 4;
-            this.skinMenuStrip1.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
-            this.skinMenuStrip1.Location = new System.Drawing.Point(4, 28);
-            this.skinMenuStrip1.Name = "skinMenuStrip1";
-            this.skinMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinMenuStrip1.Size = new System.Drawing.Size(995, 25);
-            this.skinMenuStrip1.SkinAllColor = true;
-            this.skinMenuStrip1.TabIndex = 0;
-            this.skinMenuStrip1.Text = "skinMenuStrip1";
-            this.skinMenuStrip1.TitleAnamorphosis = true;
-            this.skinMenuStrip1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.skinMenuStrip1.TitleRadius = 4;
-            this.skinMenuStrip1.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ConfigToolStripMenuItem,
-            this.ExitToolStripMenuItem});
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // ConfigToolStripMenuItem
-            // 
-            this.ConfigToolStripMenuItem.Name = "ConfigToolStripMenuItem";
-            this.ConfigToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.ConfigToolStripMenuItem.Text = "参数配置";
-            this.ConfigToolStripMenuItem.Click += new System.EventHandler(this.ConfigToolStripMenuItem_Click);
-            // 
-            // ExitToolStripMenuItem
-            // 
-            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.ExitToolStripMenuItem.Text = "退出程序";
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // skinSplitContainer1
             // 
@@ -153,7 +83,7 @@
             // 
             // skinSplitContainer1.Panel1
             // 
-            this.skinSplitContainer1.Panel1.Controls.Add(this.lvBucketList);
+            this.skinSplitContainer1.Panel1.Controls.Add(this.BucketList);
             // 
             // skinSplitContainer1.Panel2
             // 
@@ -162,19 +92,6 @@
             this.skinSplitContainer1.SplitterDistance = 225;
             this.skinSplitContainer1.SplitterWidth = 1;
             this.skinSplitContainer1.TabIndex = 1;
-            // 
-            // lvBucketList
-            // 
-            this.lvBucketList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvBucketList.FullRowSelect = true;
-            this.lvBucketList.GridLines = true;
-            this.lvBucketList.Location = new System.Drawing.Point(0, 0);
-            this.lvBucketList.Name = "lvBucketList";
-            this.lvBucketList.OwnerDraw = true;
-            this.lvBucketList.Size = new System.Drawing.Size(225, 580);
-            this.lvBucketList.TabIndex = 0;
-            this.lvBucketList.UseCompatibleStateImageBehavior = false;
-            this.lvBucketList.View = System.Windows.Forms.View.List;
             // 
             // skinSplitContainer2
             // 
@@ -188,8 +105,8 @@
             // 
             // skinSplitContainer2.Panel1
             // 
+            this.skinSplitContainer2.Panel1.Controls.Add(this.FolderList);
             this.skinSplitContainer2.Panel1.Controls.Add(this.skinProgressBar1);
-            this.skinSplitContainer2.Panel1.Controls.Add(this.skinListView2);
             this.skinSplitContainer2.Panel1.Controls.Add(this.Lblcurpathvalue);
             this.skinSplitContainer2.Panel1.Controls.Add(this.Lblcurpathtitle);
             this.skinSplitContainer2.Panel1.Controls.Add(this.BtnClearUpFilesTitle);
@@ -206,46 +123,18 @@
             this.skinSplitContainer2.SplitterWidth = 5;
             this.skinSplitContainer2.TabIndex = 0;
             // 
-            // skinListView2
+            // skinProgressBar1
             // 
-            this.skinListView2.AllowDrop = true;
-            this.skinListView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.skinListView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.skinListView2.FullRowSelect = true;
-            this.skinListView2.GridLines = true;
-            this.skinListView2.Location = new System.Drawing.Point(0, 35);
-            this.skinListView2.Name = "skinListView2";
-            this.skinListView2.OwnerDraw = true;
-            this.skinListView2.Size = new System.Drawing.Size(766, 273);
-            this.skinListView2.TabIndex = 2;
-            this.skinListView2.UseCompatibleStateImageBehavior = false;
-            this.skinListView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "文件名";
-            this.columnHeader1.Width = 149;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "大小";
-            this.columnHeader2.Width = 153;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "自定义权限";
-            this.columnHeader3.Width = 173;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "更新时间";
-            this.columnHeader4.Width = 172;
+            this.skinProgressBar1.Back = null;
+            this.skinProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.skinProgressBar1.BarBack = null;
+            this.skinProgressBar1.BarRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinProgressBar1.ForeColor = System.Drawing.Color.Red;
+            this.skinProgressBar1.Location = new System.Drawing.Point(632, 6);
+            this.skinProgressBar1.Name = "skinProgressBar1";
+            this.skinProgressBar1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinProgressBar1.Size = new System.Drawing.Size(124, 23);
+            this.skinProgressBar1.TabIndex = 3;
             // 
             // Lblcurpathvalue
             // 
@@ -349,6 +238,61 @@
             this.btnUpFileTitle.UseVisualStyleBackColor = false;
             this.btnUpFileTitle.Click += new System.EventHandler(this.btnUpFileTitle_Click);
             // 
+            // textColumn1
+            // 
+            this.textColumn1.Text = "文件名";
+            // 
+            // textColumn2
+            // 
+            this.textColumn2.Text = "自定义权限";
+            // 
+            // textColumn3
+            // 
+            this.textColumn3.Text = "创建时间";
+            // 
+            // FolderList
+            // 
+            this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FolderList.FullRowSelect = true;
+            this.FolderList.GridLines = XPTable.Models.GridLines.Both;
+            this.FolderList.Location = new System.Drawing.Point(0, 37);
+            this.FolderList.MultiSelect = true;
+            this.FolderList.Name = "FolderList";
+            this.FolderList.NoItemsText = "";
+            this.FolderList.SelectionStyle = XPTable.Models.SelectionStyle.Grid;
+            this.FolderList.Size = new System.Drawing.Size(769, 272);
+            this.FolderList.TabIndex = 4;
+            // 
+            // FolderShowImg
+            // 
+            this.FolderShowImg.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("FolderShowImg.ImageStream")));
+            this.FolderShowImg.TransparentColor = System.Drawing.Color.Transparent;
+            this.FolderShowImg.Images.SetKeyName(0, "folder.png");
+            this.FolderShowImg.Images.SetKeyName(1, "document.png");
+            this.FolderShowImg.Images.SetKeyName(2, "doc.png");
+            this.FolderShowImg.Images.SetKeyName(3, "docx.png");
+            this.FolderShowImg.Images.SetKeyName(4, "image.png");
+            this.FolderShowImg.Images.SetKeyName(5, "ai.png");
+            this.FolderShowImg.Images.SetKeyName(6, "apk.png");
+            this.FolderShowImg.Images.SetKeyName(7, "audio.png");
+            this.FolderShowImg.Images.SetKeyName(8, "cdr.png");
+            this.FolderShowImg.Images.SetKeyName(9, "compress.png");
+            this.FolderShowImg.Images.SetKeyName(10, "dmg.png");
+            this.FolderShowImg.Images.SetKeyName(11, "execute.png");
+            this.FolderShowImg.Images.SetKeyName(12, "ipa.png");
+            this.FolderShowImg.Images.SetKeyName(13, "iso.png");
+            this.FolderShowImg.Images.SetKeyName(14, "md.png");
+            this.FolderShowImg.Images.SetKeyName(15, "other.png");
+            this.FolderShowImg.Images.SetKeyName(16, "pdf.png");
+            this.FolderShowImg.Images.SetKeyName(17, "ppt.png");
+            this.FolderShowImg.Images.SetKeyName(18, "pptx.png");
+            this.FolderShowImg.Images.SetKeyName(19, "psd.png");
+            this.FolderShowImg.Images.SetKeyName(20, "video.png");
+            this.FolderShowImg.Images.SetKeyName(21, "xls.png");
+            this.FolderShowImg.Images.SetKeyName(22, "xlsx.png");
+            // 
             // skinTabControl1
             // 
             this.skinTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -374,7 +318,7 @@
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
             this.skinTabControl1.PageNorml = null;
             this.skinTabControl1.SelectedIndex = 0;
-            this.skinTabControl1.Size = new System.Drawing.Size(769, 263);
+            this.skinTabControl1.Size = new System.Drawing.Size(769, 259);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 0;
             // 
@@ -384,7 +328,7 @@
             this.skinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage1.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage1.Name = "skinTabPage1";
-            this.skinTabPage1.Size = new System.Drawing.Size(769, 227);
+            this.skinTabPage1.Size = new System.Drawing.Size(769, 223);
             this.skinTabPage1.TabIndex = 0;
             this.skinTabPage1.TabItemImage = null;
             this.skinTabPage1.Text = "上传队列";
@@ -395,23 +339,97 @@
             this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(769, 227);
+            this.skinTabPage2.Size = new System.Drawing.Size(769, 223);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
             this.skinTabPage2.Text = "下载队列";
             // 
-            // skinProgressBar1
+            // skinMenuStrip1
             // 
-            this.skinProgressBar1.Back = null;
-            this.skinProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.skinProgressBar1.BarBack = null;
-            this.skinProgressBar1.BarRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinProgressBar1.ForeColor = System.Drawing.Color.Red;
-            this.skinProgressBar1.Location = new System.Drawing.Point(632, 6);
-            this.skinProgressBar1.Name = "skinProgressBar1";
-            this.skinProgressBar1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinProgressBar1.Size = new System.Drawing.Size(124, 23);
-            this.skinProgressBar1.TabIndex = 3;
+            this.skinMenuStrip1.Arrow = System.Drawing.Color.Black;
+            this.skinMenuStrip1.Back = System.Drawing.Color.White;
+            this.skinMenuStrip1.BackRadius = 4;
+            this.skinMenuStrip1.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
+            this.skinMenuStrip1.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.skinMenuStrip1.BaseFore = System.Drawing.Color.Black;
+            this.skinMenuStrip1.BaseForeAnamorphosis = false;
+            this.skinMenuStrip1.BaseForeAnamorphosisBorder = 4;
+            this.skinMenuStrip1.BaseForeAnamorphosisColor = System.Drawing.Color.White;
+            this.skinMenuStrip1.BaseHoverFore = System.Drawing.Color.White;
+            this.skinMenuStrip1.BaseItemAnamorphosis = true;
+            this.skinMenuStrip1.BaseItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.BaseItemBorderShow = true;
+            this.skinMenuStrip1.BaseItemDown = ((System.Drawing.Image)(resources.GetObject("skinMenuStrip1.BaseItemDown")));
+            this.skinMenuStrip1.BaseItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.BaseItemMouse = ((System.Drawing.Image)(resources.GetObject("skinMenuStrip1.BaseItemMouse")));
+            this.skinMenuStrip1.BaseItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.BaseItemRadius = 4;
+            this.skinMenuStrip1.BaseItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinMenuStrip1.BaseItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.skinMenuStrip1.Fore = System.Drawing.Color.Black;
+            this.skinMenuStrip1.HoverFore = System.Drawing.Color.White;
+            this.skinMenuStrip1.ItemAnamorphosis = true;
+            this.skinMenuStrip1.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.ItemBorderShow = true;
+            this.skinMenuStrip1.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinMenuStrip1.ItemRadius = 4;
+            this.skinMenuStrip1.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
+            this.skinMenuStrip1.Location = new System.Drawing.Point(4, 28);
+            this.skinMenuStrip1.Name = "skinMenuStrip1";
+            this.skinMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinMenuStrip1.Size = new System.Drawing.Size(995, 25);
+            this.skinMenuStrip1.SkinAllColor = true;
+            this.skinMenuStrip1.TabIndex = 0;
+            this.skinMenuStrip1.Text = "skinMenuStrip1";
+            this.skinMenuStrip1.TitleAnamorphosis = true;
+            this.skinMenuStrip1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.skinMenuStrip1.TitleRadius = 4;
+            this.skinMenuStrip1.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // 文件ToolStripMenuItem
+            // 
+            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConfigToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // ConfigToolStripMenuItem
+            // 
+            this.ConfigToolStripMenuItem.Name = "ConfigToolStripMenuItem";
+            this.ConfigToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ConfigToolStripMenuItem.Text = "参数配置";
+            this.ConfigToolStripMenuItem.Click += new System.EventHandler(this.ConfigToolStripMenuItem_Click);
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ExitToolStripMenuItem.Text = "退出程序";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // 帮助ToolStripMenuItem
+            // 
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助";
+            // 
+            // BucketList
+            // 
+            this.BucketList.ColumnModel = this.BucketcolumnModel;
+            this.BucketList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BucketList.Location = new System.Drawing.Point(0, 0);
+            this.BucketList.Name = "BucketList";
+            this.BucketList.NoItemsText = "";
+            this.BucketList.Size = new System.Drawing.Size(225, 580);
+            this.BucketList.TabIndex = 1;
+            this.BucketList.TableModel = this.BuckettableModel;
             // 
             // frmMain
             // 
@@ -428,8 +446,6 @@
             this.Text = "TenCentCos Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.skinMenuStrip1.ResumeLayout(false);
-            this.skinMenuStrip1.PerformLayout();
             this.skinSplitContainer1.Panel1.ResumeLayout(false);
             this.skinSplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).EndInit();
@@ -439,7 +455,11 @@
             this.skinSplitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer2)).EndInit();
             this.skinSplitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FolderList)).EndInit();
             this.skinTabControl1.ResumeLayout(false);
+            this.skinMenuStrip1.ResumeLayout(false);
+            this.skinMenuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,11 +473,9 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConfigToolStripMenuItem;
         private CCWin.SkinControl.SkinSplitContainer skinSplitContainer1;
-        private CCWin.SkinControl.SkinListView lvBucketList;
         private CCWin.SkinControl.SkinSplitContainer skinSplitContainer2;
         private CCWin.SkinControl.SkinTabControl skinTabControl1;
         private CCWin.SkinControl.SkinTabPage skinTabPage2;
-        private CCWin.SkinControl.SkinListView skinListView2;
         private CCWin.SkinControl.SkinLabel Lblcurpathvalue;
         private CCWin.SkinControl.SkinLabel Lblcurpathtitle;
         private CCWin.SkinControl.SkinButton BtnClearUpFilesTitle;
@@ -466,11 +484,17 @@
         private CCWin.SkinControl.SkinButton BtnWFNtitle;
         private CCWin.SkinControl.SkinButton btnUpFileTitle;
         private CCWin.SkinControl.SkinTabPage skinTabPage1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private CCWin.SkinControl.SkinProgressBar skinProgressBar1;
+        private XPTable.Models.TextColumn textColumn1;
+        private XPTable.Models.TextColumn textColumn2;
+        private XPTable.Models.TextColumn textColumn3;
+        private XPTable.Models.Table FolderList;
+        private XPTable.Models.ColumnModel FolderListcolumnModel;
+        private XPTable.Models.TableModel FolderListtableModel;
+        private System.Windows.Forms.ImageList FolderShowImg;
+        private XPTable.Models.Table BucketList;
+        private XPTable.Models.ColumnModel BucketcolumnModel;
+        private XPTable.Models.TableModel BuckettableModel;
     }
 }
 

@@ -6,18 +6,22 @@ namespace COSUpLoadFile
 {
     public class GlobelSet
     {
+        #region 私有
         private static int _APP_ID = int.Parse(ConfigurationManager.AppSettings["APP_ID"]);
         private static string _SECRET_ID = ConfigurationManager.AppSettings["SECRET_ID"];
         private static string _SECRET_KEY = ConfigurationManager.AppSettings["SECRET_KEY"];
         private static string _BucketName = ConfigurationManager.AppSettings["bucketName"];
-        private static int pagesize = 199;
-        private static int threadnum = 1;
+        private static object obj = new object();
         private static string stringpath = System.AppDomain.CurrentDomain.BaseDirectory + @"list.dat";
         private static string xmlpath = System.AppDomain.CurrentDomain.BaseDirectory + @"config.xml";
-        private static object obj = new object();
-        //private List<UpLoad.Models.Serialize.Files> FilesList;
-        private static string curbucketName;
         private static XmlHelper xml;
+        #endregion
+
+        #region 公有
+        public static int pagesize = 199;
+        public static int threadnum = 1;
+        public static string _curbucketName;
+        #endregion
 
         static GlobelSet()
         {
@@ -99,5 +103,6 @@ namespace COSUpLoadFile
                 _BucketName = value;
             }
         }
+        
     }
 }
