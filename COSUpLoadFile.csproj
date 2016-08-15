@@ -86,7 +86,9 @@
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\File\FileProperty.cs" />
     <Compile Include="Models\File\Files.cs" />
-    <Compile Include="Models\File\UpFile.cs" />
+    <Compile Include="Models\File\UpFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Folder\FolderModel.cs" />
     <Compile Include="Models\Folder\FolderProperty.cs" />
     <Compile Include="Models\Folder\Folders.cs" />
@@ -129,10 +131,29 @@
     <Folder Include="Threading\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\document32x32.3c3402da.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder32x32.b1edfd5e.png" />
+    <Content Include="Resources\ai.png" />
+    <Content Include="Resources\apk.png" />
+    <Content Include="Resources\audio.png" />
+    <Content Include="Resources\cdr.png" />
+    <Content Include="Resources\compress.png" />
+    <Content Include="Resources\dmg.png" />
+    <Content Include="Resources\doc.png" />
+    <Content Include="Resources\document.png" />
+    <Content Include="Resources\docx.png" />
+    <Content Include="Resources\execute.png" />
+    <Content Include="Resources\folder.png" />
+    <Content Include="Resources\image.png" />
+    <Content Include="Resources\ipa.png" />
+    <Content Include="Resources\iso.png" />
+    <Content Include="Resources\md.png" />
+    <Content Include="Resources\other.png" />
+    <Content Include="Resources\pdf.png" />
+    <Content Include="Resources\ppt.png" />
+    <Content Include="Resources\pptx.png" />
+    <Content Include="Resources\psd.png" />
+    <Content Include="Resources\video.png" />
+    <Content Include="Resources\xls.png" />
+    <Content Include="Resources\xlsx32x32.96ee8a4e.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
