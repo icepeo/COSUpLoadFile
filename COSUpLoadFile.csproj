@@ -82,7 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Function.cs" />
-    <Compile Include="Common\Serializes.cs" />
+    <Compile Include="Common\Serializes.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Common\XmlHelper.cs" />
     <Compile Include="CosApi\API\CosCloud.cs" />
     <Compile Include="CosApi\Common\Extension.cs" />
@@ -113,12 +115,16 @@
     <Compile Include="Models\Folder\FolderProperty.cs" />
     <Compile Include="Models\Folder\Folders.cs" />
     <Compile Include="Models\Other\CreateFolder.cs" />
-    <Compile Include="Models\Other\CreateModels.cs" />
+    <Compile Include="Models\Other\CreateModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs" />
-    <Compile Include="Threading\ThreadMulti.cs" />
+    <Compile Include="Threading\ThreadMulti.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>
