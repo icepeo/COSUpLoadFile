@@ -31,7 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.skinSplitContainer1 = new CCWin.SkinControl.SkinSplitContainer();
+            this.BucketList = new XPTable.Models.Table();
+            this.BucketcolumnModel = new XPTable.Models.ColumnModel();
+            this.BuckettableModel = new XPTable.Models.TableModel();
             this.skinSplitContainer2 = new CCWin.SkinControl.SkinSplitContainer();
+            this.FolderList = new XPTable.Models.Table();
             this.skinProgressBar1 = new CCWin.SkinControl.SkinProgressBar();
             this.Lblcurpathvalue = new CCWin.SkinControl.SkinLabel();
             this.Lblcurpathtitle = new CCWin.SkinControl.SkinLabel();
@@ -40,28 +44,25 @@
             this.btnReadPathTitle = new CCWin.SkinControl.SkinButton();
             this.BtnWFNtitle = new CCWin.SkinControl.SkinButton();
             this.btnUpFileTitle = new CCWin.SkinControl.SkinButton();
+            this.skinTabControl1 = new CCWin.SkinControl.SkinTabControl();
+            this.skinTabPage1 = new CCWin.SkinControl.SkinTabPage();
+            this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.textColumn1 = new XPTable.Models.TextColumn();
             this.textColumn2 = new XPTable.Models.TextColumn();
             this.textColumn3 = new XPTable.Models.TextColumn();
             this.FolderListcolumnModel = new XPTable.Models.ColumnModel();
             this.FolderListtableModel = new XPTable.Models.TableModel();
-            this.FolderList = new XPTable.Models.Table();
             this.FolderShowImg = new System.Windows.Forms.ImageList(this.components);
-            this.skinTabControl1 = new CCWin.SkinControl.SkinTabControl();
-            this.skinTabPage1 = new CCWin.SkinControl.SkinTabPage();
-            this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BucketcolumnModel = new XPTable.Models.ColumnModel();
-            this.BucketList = new XPTable.Models.Table();
-            this.BuckettableModel = new XPTable.Models.TableModel();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).BeginInit();
             this.skinSplitContainer1.Panel1.SuspendLayout();
             this.skinSplitContainer1.Panel2.SuspendLayout();
             this.skinSplitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer2)).BeginInit();
             this.skinSplitContainer2.Panel1.SuspendLayout();
             this.skinSplitContainer2.Panel2.SuspendLayout();
@@ -69,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.FolderList)).BeginInit();
             this.skinTabControl1.SuspendLayout();
             this.skinMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).BeginInit();
             this.SuspendLayout();
             // 
             // skinSplitContainer1
@@ -92,6 +92,27 @@
             this.skinSplitContainer1.SplitterDistance = 225;
             this.skinSplitContainer1.SplitterWidth = 1;
             this.skinSplitContainer1.TabIndex = 1;
+            // 
+            // BucketList
+            // 
+            this.BucketList.ColumnModel = this.BucketcolumnModel;
+            this.BucketList.ColumnResizing = false;
+            this.BucketList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BucketList.EnableHeaderContextMenu = false;
+            this.BucketList.FullRowSelect = true;
+            this.BucketList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.BucketList.Location = new System.Drawing.Point(0, 0);
+            this.BucketList.Name = "BucketList";
+            this.BucketList.NoItemsText = "";
+            this.BucketList.Scrollable = false;
+            this.BucketList.Size = new System.Drawing.Size(225, 580);
+            this.BucketList.TabIndex = 1;
+            this.BucketList.TableModel = this.BuckettableModel;
+            this.BucketList.Click += new System.EventHandler(this.BucketList_Click);
+            // 
+            // BuckettableModel
+            // 
+            this.BuckettableModel.RowHeight = 25;
             // 
             // skinSplitContainer2
             // 
@@ -122,6 +143,20 @@
             this.skinSplitContainer2.SplitterDistance = 310;
             this.skinSplitContainer2.SplitterWidth = 5;
             this.skinSplitContainer2.TabIndex = 0;
+            // 
+            // FolderList
+            // 
+            this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FolderList.FullRowSelect = true;
+            this.FolderList.GridLines = XPTable.Models.GridLines.Both;
+            this.FolderList.Location = new System.Drawing.Point(0, 37);
+            this.FolderList.MultiSelect = true;
+            this.FolderList.Name = "FolderList";
+            this.FolderList.NoItemsText = "";
+            this.FolderList.Size = new System.Drawing.Size(769, 272);
+            this.FolderList.TabIndex = 4;
             // 
             // skinProgressBar1
             // 
@@ -238,6 +273,57 @@
             this.btnUpFileTitle.UseVisualStyleBackColor = false;
             this.btnUpFileTitle.Click += new System.EventHandler(this.btnUpFileTitle_Click);
             // 
+            // skinTabControl1
+            // 
+            this.skinTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.skinTabControl1.AnimatorType = CCWin.SkinControl.AnimationType.HorizSlide;
+            this.skinTabControl1.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
+            this.skinTabControl1.Controls.Add(this.skinTabPage1);
+            this.skinTabControl1.Controls.Add(this.skinTabPage2);
+            this.skinTabControl1.DrawType = CCWin.SkinControl.DrawStyle.Draw;
+            this.skinTabControl1.HeadBack = null;
+            this.skinTabControl1.ImgTxtOffset = new System.Drawing.Point(0, 0);
+            this.skinTabControl1.ItemSize = new System.Drawing.Size(384, 36);
+            this.skinTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.skinTabControl1.Name = "skinTabControl1";
+            this.skinTabControl1.PageArrowDown = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageArrowDown")));
+            this.skinTabControl1.PageArrowHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageArrowHover")));
+            this.skinTabControl1.PageArrowVisble = false;
+            this.skinTabControl1.PageCloseHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseHover")));
+            this.skinTabControl1.PageCloseNormal = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseNormal")));
+            this.skinTabControl1.PageDown = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageDown")));
+            this.skinTabControl1.PageHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageHover")));
+            this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
+            this.skinTabControl1.PageNorml = null;
+            this.skinTabControl1.SelectedIndex = 0;
+            this.skinTabControl1.Size = new System.Drawing.Size(769, 258);
+            this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.skinTabControl1.TabIndex = 0;
+            // 
+            // skinTabPage1
+            // 
+            this.skinTabPage1.BackColor = System.Drawing.Color.White;
+            this.skinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinTabPage1.Location = new System.Drawing.Point(0, 36);
+            this.skinTabPage1.Name = "skinTabPage1";
+            this.skinTabPage1.Size = new System.Drawing.Size(769, 222);
+            this.skinTabPage1.TabIndex = 0;
+            this.skinTabPage1.TabItemImage = null;
+            this.skinTabPage1.Text = "上传队列";
+            // 
+            // skinTabPage2
+            // 
+            this.skinTabPage2.BackColor = System.Drawing.Color.White;
+            this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
+            this.skinTabPage2.Name = "skinTabPage2";
+            this.skinTabPage2.Size = new System.Drawing.Size(769, 222);
+            this.skinTabPage2.TabIndex = 1;
+            this.skinTabPage2.TabItemImage = null;
+            this.skinTabPage2.Text = "下载队列";
+            // 
             // textColumn1
             // 
             this.textColumn1.Text = "文件名";
@@ -249,21 +335,6 @@
             // textColumn3
             // 
             this.textColumn3.Text = "创建时间";
-            // 
-            // FolderList
-            // 
-            this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FolderList.FullRowSelect = true;
-            this.FolderList.GridLines = XPTable.Models.GridLines.Both;
-            this.FolderList.Location = new System.Drawing.Point(0, 37);
-            this.FolderList.MultiSelect = true;
-            this.FolderList.Name = "FolderList";
-            this.FolderList.NoItemsText = "";
-            this.FolderList.SelectionStyle = XPTable.Models.SelectionStyle.Grid;
-            this.FolderList.Size = new System.Drawing.Size(769, 272);
-            this.FolderList.TabIndex = 4;
             // 
             // FolderShowImg
             // 
@@ -292,57 +363,6 @@
             this.FolderShowImg.Images.SetKeyName(20, "video.png");
             this.FolderShowImg.Images.SetKeyName(21, "xls.png");
             this.FolderShowImg.Images.SetKeyName(22, "xlsx.png");
-            // 
-            // skinTabControl1
-            // 
-            this.skinTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.skinTabControl1.AnimatorType = CCWin.SkinControl.AnimationType.HorizSlide;
-            this.skinTabControl1.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
-            this.skinTabControl1.Controls.Add(this.skinTabPage1);
-            this.skinTabControl1.Controls.Add(this.skinTabPage2);
-            this.skinTabControl1.DrawType = CCWin.SkinControl.DrawStyle.Draw;
-            this.skinTabControl1.HeadBack = null;
-            this.skinTabControl1.ImgTxtOffset = new System.Drawing.Point(0, 0);
-            this.skinTabControl1.ItemSize = new System.Drawing.Size(384, 36);
-            this.skinTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.skinTabControl1.Name = "skinTabControl1";
-            this.skinTabControl1.PageArrowDown = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageArrowDown")));
-            this.skinTabControl1.PageArrowHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageArrowHover")));
-            this.skinTabControl1.PageArrowVisble = false;
-            this.skinTabControl1.PageCloseHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseHover")));
-            this.skinTabControl1.PageCloseNormal = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseNormal")));
-            this.skinTabControl1.PageDown = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageDown")));
-            this.skinTabControl1.PageHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageHover")));
-            this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
-            this.skinTabControl1.PageNorml = null;
-            this.skinTabControl1.SelectedIndex = 0;
-            this.skinTabControl1.Size = new System.Drawing.Size(769, 259);
-            this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.skinTabControl1.TabIndex = 0;
-            // 
-            // skinTabPage1
-            // 
-            this.skinTabPage1.BackColor = System.Drawing.Color.White;
-            this.skinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.skinTabPage1.Location = new System.Drawing.Point(0, 36);
-            this.skinTabPage1.Name = "skinTabPage1";
-            this.skinTabPage1.Size = new System.Drawing.Size(769, 223);
-            this.skinTabPage1.TabIndex = 0;
-            this.skinTabPage1.TabItemImage = null;
-            this.skinTabPage1.Text = "上传队列";
-            // 
-            // skinTabPage2
-            // 
-            this.skinTabPage2.BackColor = System.Drawing.Color.White;
-            this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
-            this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(769, 223);
-            this.skinTabPage2.TabIndex = 1;
-            this.skinTabPage2.TabItemImage = null;
-            this.skinTabPage2.Text = "下载队列";
             // 
             // skinMenuStrip1
             // 
@@ -420,17 +440,6 @@
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
-            // BucketList
-            // 
-            this.BucketList.ColumnModel = this.BucketcolumnModel;
-            this.BucketList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BucketList.Location = new System.Drawing.Point(0, 0);
-            this.BucketList.Name = "BucketList";
-            this.BucketList.NoItemsText = "";
-            this.BucketList.Size = new System.Drawing.Size(225, 580);
-            this.BucketList.TabIndex = 1;
-            this.BucketList.TableModel = this.BuckettableModel;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -450,6 +459,7 @@
             this.skinSplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).EndInit();
             this.skinSplitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).EndInit();
             this.skinSplitContainer2.Panel1.ResumeLayout(false);
             this.skinSplitContainer2.Panel1.PerformLayout();
             this.skinSplitContainer2.Panel2.ResumeLayout(false);
@@ -459,7 +469,6 @@
             this.skinTabControl1.ResumeLayout(false);
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BucketList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,8 +502,8 @@
         private XPTable.Models.TableModel FolderListtableModel;
         private System.Windows.Forms.ImageList FolderShowImg;
         private XPTable.Models.Table BucketList;
-        private XPTable.Models.ColumnModel BucketcolumnModel;
         private XPTable.Models.TableModel BuckettableModel;
+        public XPTable.Models.ColumnModel BucketcolumnModel;
     }
 }
 

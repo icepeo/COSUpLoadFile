@@ -13,6 +13,7 @@ using COSUpLoadFile.CosApi.API;
 using COSUpLoadFile.Common;
 using XPTable;
 using XPTable.Models;
+using log4net;
 
 namespace COSUpLoadFile
 {
@@ -21,6 +22,7 @@ namespace COSUpLoadFile
         #region 定义变量与常量区
         private object _thread=null;
         private int pagesize = 199;
+        private static ILog log = LogManager.GetLogger("Logs");
         #endregion
 
         #region 初始化函数
@@ -31,6 +33,7 @@ namespace COSUpLoadFile
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            log.Info("初始化程序内容");
             initFolderList();
             Bind_lvbucketlist();
         }
@@ -90,8 +93,6 @@ namespace COSUpLoadFile
         private void btnReadPathTitle_Click(object sender, EventArgs e)
         {
             Function.ReadMainFolder("/", FolderListtableModel,FolderShowImg, CurbucketName);
-            
-            //END
         }
         #endregion
 
@@ -100,14 +101,18 @@ namespace COSUpLoadFile
 
         }
 
-        #region 绑定列表函数与事件
+        #region 绑定Bucket列表函数与事件
         private void Bind_lvbucketlist()
         {
             //先判断是否为多目录
             string[] bucketNames;
             string bucketName = GlobelSet.BucketName;
+            BucketList.TableModel = BuckettableModel;
+            BucketList.ColumnModel = BucketcolumnModel;
             if (bucketName.IndexOf(',') > 0)
             {
+                BucketcolumnModel.Columns.Add(new TextColumn(""));
+                BucketcolumnModel.Columns[0].Width = 220;
                 bucketNames = bucketName.Split(',');
                 BuckettableModel.Rows.Clear();
                 BuckettableModel.RowHeight = 30;
@@ -116,35 +121,34 @@ namespace COSUpLoadFile
                 {
                     BuckettableModel.Rows.Add(new Row());
                     BuckettableModel.Rows[bucketName_i].Cells.Add(new Cell(bucketNames[bucketName_i]));
-                    ListViewItem lvitembucket = new ListViewItem();
-                    lvitembucket.SubItems[0].Text = bucketNames[bucketName_i];
-                    if (bucketName_i == 0)
+                    BuckettableModel.Rows[bucketName_i].Tag = bucketName_i;
+                    BuckettableModel.Rows[0].IsCellSelected(0);
+                    if (bucketName_i % 2 == 0)
                     {
-                        lvitembucket.Selected = true;
+                        BuckettableModel.Rows[bucketName_i].BackColor = Color.White;
                     }
-                    lvitembucket.StateImageIndex = 0;
-                    lvitembucket.SubItems[0].ForeColor = Color.Black;
-                    //lvitembucket.SubItems[0].BackColor = Color.Black;
-                    lvitembucket.Tag = bucketName_i;
-                    //lvBucketList.Items.Add(lvitembucket);
+                    else
+                    {
+                        BuckettableModel.Rows[bucketName_i].BackColor = Color.WhiteSmoke;
+                    }
                 }
-                //lvBucketList.EndUpdate();
-            }//END
+            }
             else
             {
-                //lvBucketList.Clear();
-                //lvBucketList.BeginUpdate();
-                ListViewItem lvitembucket = new ListViewItem();
-                //lvitembucket.SubItems[0].Text = bucketName;// CurbucketName;
-                //lvitembucket.StateImageIndex = 0;
-                //lvitembucket.SubItems[0].BackColor = Color.White;
-                //itembucket.SubItems[0].;
-
-                //lvitembucket.Tag = "0";
-                //lvBucketList.Items.Add(lvitembucket);
-                //lvBucketList.EndUpdate();
+                BucketcolumnModel.Columns.Add(new TextColumn(""));
+                BucketcolumnModel.Columns[0].Width = 220;
+                BuckettableModel.Rows.Clear();
+                BuckettableModel.Rows.Add(new Row());
+                BuckettableModel.Rows[0].Cells.Add(new Cell(bucketName));
+                BuckettableModel.Rows[0].Tag = "0";
             }
         }
+
+        private void BucketList_Click(object sender, EventArgs e)
+        {
+            Function.ReadMainFolder("/", FolderListtableModel, FolderShowImg, CurbucketName);
+        }
+
         #endregion
 
         #region 新建文件夹
@@ -216,26 +220,24 @@ namespace COSUpLoadFile
 
         private string ReadCurbucketName()
         {
-            return "";
-            //if (lvBucketList.InvokeRequired)
-            //{
-            //    return lvBucketList.Invoke(new InvokeGetbucketName(ReadCurbucketName)).ToString();
-            //}
-            //else
-            //{
-            //    var obj = lvBucketList.SelectedItems[0];
-            //    if (obj.Text != "" || obj == null)
-            //    {
-            //        return lvBucketList.SelectedItems[0].Text;
-            //    }
-            //    else
-            //    {
-            //        return "mybucketName";
-            //    }
-            //}
+            if (BucketList.InvokeRequired)
+            {
+                return BucketList.Invoke(new InvokeGetbucketName(ReadCurbucketName)).ToString();
+            }
+            else
+            {
+
+                var obj = BucketList.SelectedItems[0];
+                if (obj.Cells[0].Text != "" || obj == null)
+                {
+                    return obj.Cells[0].Text;
+                }
+                else
+                {
+                    return "mytest";
+                }
+            }
         }
         #endregion
-
-
     }
 }
