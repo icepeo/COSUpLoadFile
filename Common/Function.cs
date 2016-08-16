@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.IO;
 using XPTable.Models;
 using System.Drawing;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace COSUpLoadFile.Common
 {
@@ -41,7 +43,7 @@ namespace COSUpLoadFile.Common
             return bfm.data.infos;
         }
 
-        public static void ReadMainFolder(string path, TableModel tm,ImageList image, string CurbucketName)
+        public static void ReadMainFolder(string path, TableModel tm,ImageList image, string CurbucketName,SkinLabel label)
         {
             string message = "";
             int count = 1;
@@ -85,8 +87,7 @@ namespace COSUpLoadFile.Common
                 tm.Rows[count].Cells.Add(new Cell(""));                
                 count = count + 1;                
             }
-            //lblfolderpath.Text = "/" + CurbucketName + path;
-            //txtbox.Text = getdata[0].mtime + "=" + Function.ConvertIntDateTime(getdata[0].mtime);
+            label.Text = "/" + CurbucketName + path;
         }
 
         #region 通用
@@ -229,6 +230,119 @@ namespace COSUpLoadFile.Common
             }
 
             return result;
+        }
+        #endregion
+
+        #region 文件列表操作函数
+        public static bool BacthDel(CosCloud cos, string bucketName, string path, out string mes)
+        {
+            mes = "";
+            bool b = true;
+            string result = cos.GetFolderList(bucketName, path, 199, "", 0, FolderPattern.Both);
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            FolderModel bfm = jss.Deserialize<FolderModel>(result);
+            if (bfm.code != 0)
+            {
+                mes = bfm.message;
+                return false;
+            }
+            if (bfm.data.infos.Count == 0)
+            {
+                b = DelFolder(cos, bucketName, path, out mes);
+            }
+            else
+            {
+                foreach (var item in bfm.data.infos)
+                {
+                    if (!string.IsNullOrEmpty(item.sha))
+                    {
+                        string path1 = path.TrimEnd('/') + "/" + item.name;
+                        b = DelFiles(cos, bucketName, path1, out mes);
+                    }
+                    else
+                    {
+                        string path2 = path.TrimEnd('/') + "/" + item.name;
+                        BacthDel(cos, bucketName, path2, out mes);
+                        //删除本身
+                        b = DelFolder(cos, bucketName, path2, out mes);
+                    }
+                }
+                b = DelFolder(cos, bucketName, path, out mes);
+            }
+            return b;
+        }
+
+        public static bool DelFolder(CosCloud cos, string bucketName, string path, out string outmes)
+        {
+            string deljsonstr = "";
+            bool flag = true;
+            try
+            {
+                deljsonstr = cos.DeleteFolder(bucketName, path);
+                JavaScriptSerializer jss1 = new JavaScriptSerializer();
+                CosBase deljson = jss1.Deserialize<CosBase>(deljsonstr);
+                if (deljson.code == 0 && deljson.message == "SUCCESS")
+                {
+                    outmes = "删除完成!";
+                }
+                else
+                {
+                    outmes = "删除出错!" + deljson.message;
+                    flag = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                outmes = "删除出错!" + ex.Message;
+                flag = false;
+            }
+            return flag;
+        }
+
+        public static bool DelFiles(CosCloud cos, string bucketName, string path, out string outmes)
+        {
+            string deljsonstr = "";
+            bool flag = true;
+            deljsonstr = cos.DeleteFile(bucketName, path);
+            JavaScriptSerializer jss2 = new JavaScriptSerializer();
+            CosBase deljson = jss2.Deserialize<CosBase>(deljsonstr);
+            if (deljson.code == 0 && deljson.message == "SUCCESS")
+            {
+                outmes = "删除完成!";
+            }
+            else
+            {
+                outmes = "删除出错!" + deljson.message;
+                flag = false;
+            }
+            return flag;
+        }
+
+        /// <summary>
+        /// 判断文件是否为完整：完整删除,不完整跳过
+        /// </summary>
+        /// <param name="cos"></param>
+        /// <param name="bucketName"></param>
+        /// <param name="lf"></param>
+        public static void DelFiles(CosCloud cos, string bucketName, List<FileModel> lf, string curfolder)
+        {
+            foreach (var item in lf)
+            {
+                if (item.filefrontdir != "")
+                {
+                    curfolder = curfolder + item.filefrontdir;
+                }
+                string tempres = cos.GetFileStat(bucketName, curfolder + "/" + Path.GetFileName(item.filepath));
+                JObject tempobj = (JObject)JsonConvert.DeserializeObject(tempres);
+                var tempcode = (int)tempobj["code"];
+                if (tempcode == 0)
+                {
+                    if (tempobj["data"]["filelen"].ToString() == tempobj["data"]["filesize"].ToString())
+                    {
+                        cos.DeleteFile(bucketName, curfolder.TrimEnd('/') + "/" + Path.GetFileName(item.filepath));
+                    }
+                }
+            }
         }
         #endregion
 

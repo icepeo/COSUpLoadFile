@@ -11,13 +11,13 @@ namespace COSUpLoadFile
         private static string _SECRET_ID = ConfigurationManager.AppSettings["SECRET_ID"];
         private static string _SECRET_KEY = ConfigurationManager.AppSettings["SECRET_KEY"];
         private static string _BucketName = ConfigurationManager.AppSettings["bucketName"];
-        private static object obj = new object();
-        private static string stringpath = System.AppDomain.CurrentDomain.BaseDirectory + @"list.dat";
-        private static string xmlpath = System.AppDomain.CurrentDomain.BaseDirectory + @"config.xml";
+        private static object obj = new object();        
         private static XmlHelper xml;
         #endregion
 
         #region 公有
+        public static string stringpath = System.AppDomain.CurrentDomain.BaseDirectory + @"list.dat";
+        public static string xmlpath = System.AppDomain.CurrentDomain.BaseDirectory + @"config.xml";
         public static int pagesize = 199;
         public static int threadnum = 1;
         public static string _curbucketName;
@@ -103,6 +103,20 @@ namespace COSUpLoadFile
                 _BucketName = value;
             }
         }
-        
+
+        public static int ThreadNum
+        {
+            get
+            {
+                if (xml.GetXmlNode(xmlpath, "config/thread") != null)
+                {
+                    return int.Parse(xml.GetXmlNode(xmlpath, "config/thread").InnerText);
+                }
+                else
+                {
+                    return threadnum;
+                }
+            }
+        }
     }
 }

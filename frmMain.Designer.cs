@@ -36,7 +36,7 @@
             this.BuckettableModel = new XPTable.Models.TableModel();
             this.skinSplitContainer2 = new CCWin.SkinControl.SkinSplitContainer();
             this.FolderList = new XPTable.Models.Table();
-            this.skinProgressBar1 = new CCWin.SkinControl.SkinProgressBar();
+            this.filesskinProgressBar = new CCWin.SkinControl.SkinProgressBar();
             this.Lblcurpathvalue = new CCWin.SkinControl.SkinLabel();
             this.Lblcurpathtitle = new CCWin.SkinControl.SkinLabel();
             this.BtnClearUpFilesTitle = new CCWin.SkinControl.SkinButton();
@@ -45,8 +45,10 @@
             this.BtnWFNtitle = new CCWin.SkinControl.SkinButton();
             this.btnUpFileTitle = new CCWin.SkinControl.SkinButton();
             this.skinTabControl1 = new CCWin.SkinControl.SkinTabControl();
-            this.skinTabPage1 = new CCWin.SkinControl.SkinTabPage();
             this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
+            this.uploadtable = new XPTable.Models.Table();
+            this.uploadcolumnModel = new XPTable.Models.ColumnModel();
+            this.uploadtableModel = new XPTable.Models.TableModel();
             this.textColumn1 = new XPTable.Models.TextColumn();
             this.textColumn2 = new XPTable.Models.TextColumn();
             this.textColumn3 = new XPTable.Models.TextColumn();
@@ -58,6 +60,10 @@
             this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FolderListskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.downToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadlistskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).BeginInit();
             this.skinSplitContainer1.Panel1.SuspendLayout();
             this.skinSplitContainer1.Panel2.SuspendLayout();
@@ -69,7 +75,10 @@
             this.skinSplitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FolderList)).BeginInit();
             this.skinTabControl1.SuspendLayout();
+            this.skinTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uploadtable)).BeginInit();
             this.skinMenuStrip1.SuspendLayout();
+            this.FolderListskinContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // skinSplitContainer1
@@ -127,7 +136,7 @@
             // skinSplitContainer2.Panel1
             // 
             this.skinSplitContainer2.Panel1.Controls.Add(this.FolderList);
-            this.skinSplitContainer2.Panel1.Controls.Add(this.skinProgressBar1);
+            this.skinSplitContainer2.Panel1.Controls.Add(this.filesskinProgressBar);
             this.skinSplitContainer2.Panel1.Controls.Add(this.Lblcurpathvalue);
             this.skinSplitContainer2.Panel1.Controls.Add(this.Lblcurpathtitle);
             this.skinSplitContainer2.Panel1.Controls.Add(this.BtnClearUpFilesTitle);
@@ -149,6 +158,7 @@
             this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.FolderList.ContextMenuStrip = this.FolderListskinContextMenuStrip;
             this.FolderList.FullRowSelect = true;
             this.FolderList.GridLines = XPTable.Models.GridLines.Both;
             this.FolderList.Location = new System.Drawing.Point(0, 37);
@@ -157,19 +167,21 @@
             this.FolderList.NoItemsText = "";
             this.FolderList.Size = new System.Drawing.Size(769, 272);
             this.FolderList.TabIndex = 4;
+            this.FolderList.Click += new System.EventHandler(this.FolderList_Click);
+            this.FolderList.DoubleClick += new System.EventHandler(this.FolderList_DoubleClick);
             // 
-            // skinProgressBar1
+            // filesskinProgressBar
             // 
-            this.skinProgressBar1.Back = null;
-            this.skinProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.skinProgressBar1.BarBack = null;
-            this.skinProgressBar1.BarRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinProgressBar1.ForeColor = System.Drawing.Color.Red;
-            this.skinProgressBar1.Location = new System.Drawing.Point(632, 6);
-            this.skinProgressBar1.Name = "skinProgressBar1";
-            this.skinProgressBar1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinProgressBar1.Size = new System.Drawing.Size(124, 23);
-            this.skinProgressBar1.TabIndex = 3;
+            this.filesskinProgressBar.Back = null;
+            this.filesskinProgressBar.BackColor = System.Drawing.Color.Transparent;
+            this.filesskinProgressBar.BarBack = null;
+            this.filesskinProgressBar.BarRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.filesskinProgressBar.ForeColor = System.Drawing.Color.Red;
+            this.filesskinProgressBar.Location = new System.Drawing.Point(632, 6);
+            this.filesskinProgressBar.Name = "filesskinProgressBar";
+            this.filesskinProgressBar.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.filesskinProgressBar.Size = new System.Drawing.Size(124, 23);
+            this.filesskinProgressBar.TabIndex = 3;
             // 
             // Lblcurpathvalue
             // 
@@ -177,11 +189,10 @@
             this.Lblcurpathvalue.BackColor = System.Drawing.Color.Transparent;
             this.Lblcurpathvalue.BorderColor = System.Drawing.Color.White;
             this.Lblcurpathvalue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lblcurpathvalue.Location = new System.Drawing.Point(82, 9);
+            this.Lblcurpathvalue.Location = new System.Drawing.Point(72, 9);
             this.Lblcurpathvalue.Name = "Lblcurpathvalue";
-            this.Lblcurpathvalue.Size = new System.Drawing.Size(64, 17);
+            this.Lblcurpathvalue.Size = new System.Drawing.Size(0, 17);
             this.Lblcurpathvalue.TabIndex = 1;
-            this.Lblcurpathvalue.Text = "FoldPaths";
             // 
             // Lblcurpathtitle
             // 
@@ -280,7 +291,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.skinTabControl1.AnimatorType = CCWin.SkinControl.AnimationType.HorizSlide;
             this.skinTabControl1.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
-            this.skinTabControl1.Controls.Add(this.skinTabPage1);
             this.skinTabControl1.Controls.Add(this.skinTabPage2);
             this.skinTabControl1.DrawType = CCWin.SkinControl.DrawStyle.Draw;
             this.skinTabControl1.HeadBack = null;
@@ -298,31 +308,34 @@
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
             this.skinTabControl1.PageNorml = null;
             this.skinTabControl1.SelectedIndex = 0;
-            this.skinTabControl1.Size = new System.Drawing.Size(769, 258);
+            this.skinTabControl1.Size = new System.Drawing.Size(769, 263);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 0;
-            // 
-            // skinTabPage1
-            // 
-            this.skinTabPage1.BackColor = System.Drawing.Color.White;
-            this.skinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.skinTabPage1.Location = new System.Drawing.Point(0, 36);
-            this.skinTabPage1.Name = "skinTabPage1";
-            this.skinTabPage1.Size = new System.Drawing.Size(769, 222);
-            this.skinTabPage1.TabIndex = 0;
-            this.skinTabPage1.TabItemImage = null;
-            this.skinTabPage1.Text = "上传队列";
             // 
             // skinTabPage2
             // 
             this.skinTabPage2.BackColor = System.Drawing.Color.White;
+            this.skinTabPage2.Controls.Add(this.uploadtable);
             this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(769, 222);
+            this.skinTabPage2.Size = new System.Drawing.Size(769, 227);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
             this.skinTabPage2.Text = "下载队列";
+            // 
+            // uploadtable
+            // 
+            this.uploadtable.ColumnModel = this.uploadcolumnModel;
+            this.uploadtable.ContextMenuStrip = this.uploadlistskinContextMenuStrip;
+            this.uploadtable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadtable.GridLines = XPTable.Models.GridLines.Both;
+            this.uploadtable.Location = new System.Drawing.Point(0, 0);
+            this.uploadtable.Name = "uploadtable";
+            this.uploadtable.NoItemsText = "";
+            this.uploadtable.Size = new System.Drawing.Size(769, 227);
+            this.uploadtable.TabIndex = 0;
+            this.uploadtable.TableModel = this.uploadtableModel;
             // 
             // textColumn1
             // 
@@ -440,6 +453,73 @@
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
+            // FolderListskinContextMenuStrip
+            // 
+            this.FolderListskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
+            this.FolderListskinContextMenuStrip.Back = System.Drawing.Color.White;
+            this.FolderListskinContextMenuStrip.BackRadius = 4;
+            this.FolderListskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.FolderListskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.FolderListskinContextMenuStrip.Fore = System.Drawing.Color.Black;
+            this.FolderListskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
+            this.FolderListskinContextMenuStrip.ItemAnamorphosis = true;
+            this.FolderListskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemBorderShow = true;
+            this.FolderListskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemRadius = 4;
+            this.FolderListskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.FolderListskinContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.downToolStripMenuItem,
+            this.delToolStripMenuItem});
+            this.FolderListskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.Name = "FolderListskinContextMenuStrip";
+            this.FolderListskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.FolderListskinContextMenuStrip.Size = new System.Drawing.Size(125, 48);
+            this.FolderListskinContextMenuStrip.SkinAllColor = true;
+            this.FolderListskinContextMenuStrip.TitleAnamorphosis = true;
+            this.FolderListskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.FolderListskinContextMenuStrip.TitleRadius = 4;
+            this.FolderListskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // downToolStripMenuItem
+            // 
+            this.downToolStripMenuItem.Name = "downToolStripMenuItem";
+            this.downToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.downToolStripMenuItem.Text = "下载文件";
+            // 
+            // delToolStripMenuItem
+            // 
+            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.delToolStripMenuItem.Text = "删除文件";
+            // 
+            // uploadlistskinContextMenuStrip
+            // 
+            this.uploadlistskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
+            this.uploadlistskinContextMenuStrip.Back = System.Drawing.Color.White;
+            this.uploadlistskinContextMenuStrip.BackRadius = 4;
+            this.uploadlistskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.uploadlistskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.uploadlistskinContextMenuStrip.Fore = System.Drawing.Color.Black;
+            this.uploadlistskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
+            this.uploadlistskinContextMenuStrip.ItemAnamorphosis = true;
+            this.uploadlistskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemBorderShow = true;
+            this.uploadlistskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemRadius = 4;
+            this.uploadlistskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.uploadlistskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.Name = "uploadlistskinContextMenuStrip";
+            this.uploadlistskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.uploadlistskinContextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            this.uploadlistskinContextMenuStrip.SkinAllColor = true;
+            this.uploadlistskinContextMenuStrip.TitleAnamorphosis = true;
+            this.uploadlistskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.uploadlistskinContextMenuStrip.TitleRadius = 4;
+            this.uploadlistskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -450,6 +530,7 @@
             this.Controls.Add(this.skinMenuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.skinMenuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenCentCos Client";
@@ -467,8 +548,11 @@
             this.skinSplitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FolderList)).EndInit();
             this.skinTabControl1.ResumeLayout(false);
+            this.skinTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uploadtable)).EndInit();
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
+            this.FolderListskinContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,8 +567,6 @@
         private System.Windows.Forms.ToolStripMenuItem ConfigToolStripMenuItem;
         private CCWin.SkinControl.SkinSplitContainer skinSplitContainer1;
         private CCWin.SkinControl.SkinSplitContainer skinSplitContainer2;
-        private CCWin.SkinControl.SkinTabControl skinTabControl1;
-        private CCWin.SkinControl.SkinTabPage skinTabPage2;
         private CCWin.SkinControl.SkinLabel Lblcurpathvalue;
         private CCWin.SkinControl.SkinLabel Lblcurpathtitle;
         private CCWin.SkinControl.SkinButton BtnClearUpFilesTitle;
@@ -492,8 +574,7 @@
         private CCWin.SkinControl.SkinButton btnReadPathTitle;
         private CCWin.SkinControl.SkinButton BtnWFNtitle;
         private CCWin.SkinControl.SkinButton btnUpFileTitle;
-        private CCWin.SkinControl.SkinTabPage skinTabPage1;
-        private CCWin.SkinControl.SkinProgressBar skinProgressBar1;
+        private CCWin.SkinControl.SkinProgressBar filesskinProgressBar;
         private XPTable.Models.TextColumn textColumn1;
         private XPTable.Models.TextColumn textColumn2;
         private XPTable.Models.TextColumn textColumn3;
@@ -504,6 +585,15 @@
         private XPTable.Models.Table BucketList;
         private XPTable.Models.TableModel BuckettableModel;
         public XPTable.Models.ColumnModel BucketcolumnModel;
+        private CCWin.SkinControl.SkinTabControl skinTabControl1;
+        private CCWin.SkinControl.SkinTabPage skinTabPage2;
+        private XPTable.Models.Table uploadtable;
+        private XPTable.Models.ColumnModel uploadcolumnModel;
+        private XPTable.Models.TableModel uploadtableModel;
+        private CCWin.SkinControl.SkinContextMenuStrip FolderListskinContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem downToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem delToolStripMenuItem;
+        private CCWin.SkinControl.SkinContextMenuStrip uploadlistskinContextMenuStrip;
     }
 }
 
