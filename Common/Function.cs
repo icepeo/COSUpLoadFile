@@ -73,13 +73,13 @@ namespace COSUpLoadFile.Common
                 if (!String.IsNullOrEmpty(fp.sha))
                 {
                     tm.Rows[count].Tag = "1";
-                    tm.Rows[count].Cells.Add(new Cell(fp.name, image.Images[0]));
+                    tm.Rows[count].Cells.Add(new Cell(fp.name,GetImage(Path.GetExtension(fp.name), image, true)));
                     tm.Rows[count].Cells.Add(new Cell(Function.FormatCapacity(fp.filesize)));
                 }
                 else
                 {
                     tm.Rows[count].Tag = "0";
-                    tm.Rows[count].Cells.Add(new Cell(fp.name, image.Images[0]));
+                    tm.Rows[count].Cells.Add(new Cell(fp.name, GetImage("", image, false)));
                     tm.Rows[count].Cells.Add(new Cell("--"));
                 }
                 tm.Rows[count].Cells.Add(new Cell("--"));
@@ -88,6 +88,105 @@ namespace COSUpLoadFile.Common
                 count = count + 1;                
             }
             label.Text = "/" + CurbucketName + path;
+        }
+
+        public static Image GetImage(string ext, ImageList image,bool b)
+        {
+            Image img=null;
+            ext = ext.ToUpper();
+            if (b)
+            {
+                switch (ext)
+                {
+                    case ".TXT":
+                        img=image.Images[1];
+                        break;
+                    case ".DOC":
+                        img = image.Images[2];
+                        break;
+                    case ".DOCX":
+                        img = image.Images[3];
+                        break;
+                    case ".GIF":
+                    case ".JPG":
+                    case ".JPEG":
+                    case ".PNG":
+                    case ".BMP":
+                        img = image.Images[4];
+                        break;
+                    case ".AI":
+                        img = image.Images[5];
+                        break;
+                    case ".APK":
+                        img = image.Images[6];
+                        break;
+                    case ".MP3":
+                    case ".WAV":
+                    case ".MIDI":
+                    case ".WMA":
+                        img = image.Images[7];
+                        break;
+                    case ".CDR":
+                        img = image.Images[8];
+                        break;
+                    case ".ZIP":
+                    case ".RAR":
+                    case ".7Z":
+                    case ".CAB":
+                        img = image.Images[9];
+                        break;
+                    case ".DMG":
+                        img = image.Images[10];
+                        break;
+                    case ".EXE":
+                        img = image.Images[11];
+                        break;
+                    case ".IPA":
+                        img = image.Images[12];
+                        break;
+                    case ".ISO":
+                        img = image.Images[13];
+                        break;
+                    case ".MD":
+                        img = image.Images[14];
+                        break;
+                    case ".PDF":
+                        img = image.Images[16];
+                        break;
+                    case ".PPT":
+                        img = image.Images[17];
+                        break;
+                    case ".PPTX":
+                        img = image.Images[18];
+                        break;
+                    case ".PSD":
+                        img = image.Images[19];
+                        break;
+                    case ".MOV":
+                    case ".RM":
+                    case ".RMVB":
+                    case ".WMV":
+                    case ".MPG":
+                    case ".MP4":
+                    case ".AVI":
+                        img = image.Images[20];
+                        break;
+                    case ".XLS":
+                        img = image.Images[21];
+                        break;
+                    case ".XLSX":
+                        img = image.Images[22];
+                        break;
+                    default:
+                        img=image.Images[15];
+                        break;
+                }
+            }
+            else
+            {
+                img=image.Images[0];
+            }
+            return img;
         }
 
         #region 通用

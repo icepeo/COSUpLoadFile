@@ -36,6 +36,9 @@
             this.BuckettableModel = new XPTable.Models.TableModel();
             this.skinSplitContainer2 = new CCWin.SkinControl.SkinSplitContainer();
             this.FolderList = new XPTable.Models.Table();
+            this.FolderListskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.downToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filesskinProgressBar = new CCWin.SkinControl.SkinProgressBar();
             this.Lblcurpathvalue = new CCWin.SkinControl.SkinLabel();
             this.Lblcurpathtitle = new CCWin.SkinControl.SkinLabel();
@@ -48,6 +51,7 @@
             this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.uploadtable = new XPTable.Models.Table();
             this.uploadcolumnModel = new XPTable.Models.ColumnModel();
+            this.uploadlistskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
             this.uploadtableModel = new XPTable.Models.TableModel();
             this.textColumn1 = new XPTable.Models.TextColumn();
             this.textColumn2 = new XPTable.Models.TextColumn();
@@ -60,10 +64,9 @@
             this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FolderListskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
-            this.downToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadlistskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearcomplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).BeginInit();
             this.skinSplitContainer1.Panel1.SuspendLayout();
             this.skinSplitContainer1.Panel2.SuspendLayout();
@@ -74,11 +77,12 @@
             this.skinSplitContainer2.Panel2.SuspendLayout();
             this.skinSplitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FolderList)).BeginInit();
+            this.FolderListskinContextMenuStrip.SuspendLayout();
             this.skinTabControl1.SuspendLayout();
             this.skinTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadtable)).BeginInit();
+            this.uploadlistskinContextMenuStrip.SuspendLayout();
             this.skinMenuStrip1.SuspendLayout();
-            this.FolderListskinContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // skinSplitContainer1
@@ -155,6 +159,7 @@
             // 
             // FolderList
             // 
+            this.FolderList.AllowDrop = true;
             this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -168,7 +173,52 @@
             this.FolderList.Size = new System.Drawing.Size(769, 272);
             this.FolderList.TabIndex = 4;
             this.FolderList.Click += new System.EventHandler(this.FolderList_Click);
+            this.FolderList.DragDrop += new System.Windows.Forms.DragEventHandler(this.FolderList_DragDrop);
+            this.FolderList.DragEnter += new System.Windows.Forms.DragEventHandler(this.FolderList_DragEnter);
             this.FolderList.DoubleClick += new System.EventHandler(this.FolderList_DoubleClick);
+            // 
+            // FolderListskinContextMenuStrip
+            // 
+            this.FolderListskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
+            this.FolderListskinContextMenuStrip.Back = System.Drawing.Color.White;
+            this.FolderListskinContextMenuStrip.BackRadius = 4;
+            this.FolderListskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.FolderListskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.FolderListskinContextMenuStrip.Fore = System.Drawing.Color.Black;
+            this.FolderListskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
+            this.FolderListskinContextMenuStrip.ItemAnamorphosis = true;
+            this.FolderListskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemBorderShow = true;
+            this.FolderListskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.ItemRadius = 4;
+            this.FolderListskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.FolderListskinContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.downToolStripMenuItem,
+            this.delToolStripMenuItem});
+            this.FolderListskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.FolderListskinContextMenuStrip.Name = "FolderListskinContextMenuStrip";
+            this.FolderListskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.FolderListskinContextMenuStrip.Size = new System.Drawing.Size(125, 48);
+            this.FolderListskinContextMenuStrip.SkinAllColor = true;
+            this.FolderListskinContextMenuStrip.TitleAnamorphosis = true;
+            this.FolderListskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.FolderListskinContextMenuStrip.TitleRadius = 4;
+            this.FolderListskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // downToolStripMenuItem
+            // 
+            this.downToolStripMenuItem.Name = "downToolStripMenuItem";
+            this.downToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.downToolStripMenuItem.Text = "下载文件";
+            this.downToolStripMenuItem.Click += new System.EventHandler(this.downToolStripMenuItem_Click);
+            // 
+            // delToolStripMenuItem
+            // 
+            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.delToolStripMenuItem.Text = "删除文件";
+            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
             // 
             // filesskinProgressBar
             // 
@@ -267,6 +317,7 @@
             this.BtnWFNtitle.TabIndex = 0;
             this.BtnWFNtitle.Text = "全部续传";
             this.BtnWFNtitle.UseVisualStyleBackColor = false;
+            this.BtnWFNtitle.Click += new System.EventHandler(this.BtnWFNtitle_Click);
             // 
             // btnUpFileTitle
             // 
@@ -308,7 +359,7 @@
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
             this.skinTabControl1.PageNorml = null;
             this.skinTabControl1.SelectedIndex = 0;
-            this.skinTabControl1.Size = new System.Drawing.Size(769, 263);
+            this.skinTabControl1.Size = new System.Drawing.Size(769, 262);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 0;
             // 
@@ -319,13 +370,14 @@
             this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(769, 227);
+            this.skinTabPage2.Size = new System.Drawing.Size(769, 226);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
-            this.skinTabPage2.Text = "下载队列";
+            this.skinTabPage2.Text = "上传队列";
             // 
             // uploadtable
             // 
+            this.uploadtable.AllowDrop = true;
             this.uploadtable.ColumnModel = this.uploadcolumnModel;
             this.uploadtable.ContextMenuStrip = this.uploadlistskinContextMenuStrip;
             this.uploadtable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -333,9 +385,45 @@
             this.uploadtable.Location = new System.Drawing.Point(0, 0);
             this.uploadtable.Name = "uploadtable";
             this.uploadtable.NoItemsText = "";
-            this.uploadtable.Size = new System.Drawing.Size(769, 227);
+            this.uploadtable.Size = new System.Drawing.Size(769, 226);
             this.uploadtable.TabIndex = 0;
             this.uploadtable.TableModel = this.uploadtableModel;
+            this.uploadtable.DragDrop += new System.Windows.Forms.DragEventHandler(this.uploadtable_DragDrop);
+            this.uploadtable.DragEnter += new System.Windows.Forms.DragEventHandler(this.uploadtable_DragEnter);
+            // 
+            // uploadlistskinContextMenuStrip
+            // 
+            this.uploadlistskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
+            this.uploadlistskinContextMenuStrip.Back = System.Drawing.Color.White;
+            this.uploadlistskinContextMenuStrip.BackRadius = 4;
+            this.uploadlistskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.uploadlistskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.uploadlistskinContextMenuStrip.Fore = System.Drawing.Color.Black;
+            this.uploadlistskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
+            this.uploadlistskinContextMenuStrip.ItemAnamorphosis = true;
+            this.uploadlistskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemBorderShow = true;
+            this.uploadlistskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.ItemRadius = 4;
+            this.uploadlistskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.uploadlistskinContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadToolStripMenuItem,
+            this.clearcomplateToolStripMenuItem,
+            this.clearallToolStripMenuItem});
+            this.uploadlistskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.uploadlistskinContextMenuStrip.Name = "uploadlistskinContextMenuStrip";
+            this.uploadlistskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.uploadlistskinContextMenuStrip.Size = new System.Drawing.Size(130, 70);
+            this.uploadlistskinContextMenuStrip.SkinAllColor = true;
+            this.uploadlistskinContextMenuStrip.TitleAnamorphosis = true;
+            this.uploadlistskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.uploadlistskinContextMenuStrip.TitleRadius = 4;
+            this.uploadlistskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // uploadtableModel
+            // 
+            this.uploadtableModel.RowHeight = 20;
             // 
             // textColumn1
             // 
@@ -453,72 +541,26 @@
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
-            // FolderListskinContextMenuStrip
+            // uploadToolStripMenuItem
             // 
-            this.FolderListskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
-            this.FolderListskinContextMenuStrip.Back = System.Drawing.Color.White;
-            this.FolderListskinContextMenuStrip.BackRadius = 4;
-            this.FolderListskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
-            this.FolderListskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.FolderListskinContextMenuStrip.Fore = System.Drawing.Color.Black;
-            this.FolderListskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
-            this.FolderListskinContextMenuStrip.ItemAnamorphosis = true;
-            this.FolderListskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.FolderListskinContextMenuStrip.ItemBorderShow = true;
-            this.FolderListskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.FolderListskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.FolderListskinContextMenuStrip.ItemRadius = 4;
-            this.FolderListskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.FolderListskinContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.downToolStripMenuItem,
-            this.delToolStripMenuItem});
-            this.FolderListskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.FolderListskinContextMenuStrip.Name = "FolderListskinContextMenuStrip";
-            this.FolderListskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.FolderListskinContextMenuStrip.Size = new System.Drawing.Size(125, 48);
-            this.FolderListskinContextMenuStrip.SkinAllColor = true;
-            this.FolderListskinContextMenuStrip.TitleAnamorphosis = true;
-            this.FolderListskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.FolderListskinContextMenuStrip.TitleRadius = 4;
-            this.FolderListskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.uploadToolStripMenuItem.Text = "上传/续传";
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
             // 
-            // downToolStripMenuItem
+            // clearcomplateToolStripMenuItem
             // 
-            this.downToolStripMenuItem.Name = "downToolStripMenuItem";
-            this.downToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.downToolStripMenuItem.Text = "下载文件";
+            this.clearcomplateToolStripMenuItem.Name = "clearcomplateToolStripMenuItem";
+            this.clearcomplateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clearcomplateToolStripMenuItem.Text = "清除完成";
+            this.clearcomplateToolStripMenuItem.Click += new System.EventHandler(this.clearcomplateToolStripMenuItem_Click);
             // 
-            // delToolStripMenuItem
+            // clearallToolStripMenuItem
             // 
-            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.delToolStripMenuItem.Text = "删除文件";
-            // 
-            // uploadlistskinContextMenuStrip
-            // 
-            this.uploadlistskinContextMenuStrip.Arrow = System.Drawing.Color.Black;
-            this.uploadlistskinContextMenuStrip.Back = System.Drawing.Color.White;
-            this.uploadlistskinContextMenuStrip.BackRadius = 4;
-            this.uploadlistskinContextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
-            this.uploadlistskinContextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.uploadlistskinContextMenuStrip.Fore = System.Drawing.Color.Black;
-            this.uploadlistskinContextMenuStrip.HoverFore = System.Drawing.Color.White;
-            this.uploadlistskinContextMenuStrip.ItemAnamorphosis = true;
-            this.uploadlistskinContextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.uploadlistskinContextMenuStrip.ItemBorderShow = true;
-            this.uploadlistskinContextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.uploadlistskinContextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.uploadlistskinContextMenuStrip.ItemRadius = 4;
-            this.uploadlistskinContextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.uploadlistskinContextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.uploadlistskinContextMenuStrip.Name = "uploadlistskinContextMenuStrip";
-            this.uploadlistskinContextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.uploadlistskinContextMenuStrip.Size = new System.Drawing.Size(61, 4);
-            this.uploadlistskinContextMenuStrip.SkinAllColor = true;
-            this.uploadlistskinContextMenuStrip.TitleAnamorphosis = true;
-            this.uploadlistskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.uploadlistskinContextMenuStrip.TitleRadius = 4;
-            this.uploadlistskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.clearallToolStripMenuItem.Name = "clearallToolStripMenuItem";
+            this.clearallToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clearallToolStripMenuItem.Text = "清除所有";
+            this.clearallToolStripMenuItem.Click += new System.EventHandler(this.clearallToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -547,12 +589,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer2)).EndInit();
             this.skinSplitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FolderList)).EndInit();
+            this.FolderListskinContextMenuStrip.ResumeLayout(false);
             this.skinTabControl1.ResumeLayout(false);
             this.skinTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uploadtable)).EndInit();
+            this.uploadlistskinContextMenuStrip.ResumeLayout(false);
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
-            this.FolderListskinContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,6 +637,9 @@
         private System.Windows.Forms.ToolStripMenuItem downToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem delToolStripMenuItem;
         private CCWin.SkinControl.SkinContextMenuStrip uploadlistskinContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearcomplateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearallToolStripMenuItem;
     }
 }
 
