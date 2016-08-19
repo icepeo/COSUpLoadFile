@@ -36,9 +36,11 @@
             this.BuckettableModel = new XPTable.Models.TableModel();
             this.skinSplitContainer2 = new CCWin.SkinControl.SkinSplitContainer();
             this.FolderList = new XPTable.Models.Table();
+            this.FolderListcolumnModel = new XPTable.Models.ColumnModel();
             this.FolderListskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
             this.downToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FolderListtableModel = new XPTable.Models.TableModel();
             this.filesskinProgressBar = new CCWin.SkinControl.SkinProgressBar();
             this.Lblcurpathvalue = new CCWin.SkinControl.SkinLabel();
             this.Lblcurpathtitle = new CCWin.SkinControl.SkinLabel();
@@ -52,21 +54,19 @@
             this.uploadtable = new XPTable.Models.Table();
             this.uploadcolumnModel = new XPTable.Models.ColumnModel();
             this.uploadlistskinContextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearcomplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadtableModel = new XPTable.Models.TableModel();
             this.textColumn1 = new XPTable.Models.TextColumn();
             this.textColumn2 = new XPTable.Models.TextColumn();
             this.textColumn3 = new XPTable.Models.TextColumn();
-            this.FolderListcolumnModel = new XPTable.Models.ColumnModel();
-            this.FolderListtableModel = new XPTable.Models.TableModel();
             this.FolderShowImg = new System.Windows.Forms.ImageList(this.components);
             this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearcomplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainer1)).BeginInit();
             this.skinSplitContainer1.Panel1.SuspendLayout();
             this.skinSplitContainer1.Panel2.SuspendLayout();
@@ -163,15 +163,21 @@
             this.FolderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.FolderList.ColumnModel = this.FolderListcolumnModel;
+            this.FolderList.ColumnResizing = false;
             this.FolderList.ContextMenuStrip = this.FolderListskinContextMenuStrip;
+            this.FolderList.EnableHeaderContextMenu = false;
             this.FolderList.FullRowSelect = true;
             this.FolderList.GridLines = XPTable.Models.GridLines.Both;
+            this.FolderList.HideSelection = true;
             this.FolderList.Location = new System.Drawing.Point(0, 37);
-            this.FolderList.MultiSelect = true;
             this.FolderList.Name = "FolderList";
-            this.FolderList.NoItemsText = "";
+            this.FolderList.NoItemsText = "暂无文件";
             this.FolderList.Size = new System.Drawing.Size(769, 272);
+            this.FolderList.SortedColumnBackColor = System.Drawing.Color.Transparent;
             this.FolderList.TabIndex = 4;
+            this.FolderList.TableModel = this.FolderListtableModel;
+            this.FolderList.Text = "FolderList";
             this.FolderList.Click += new System.EventHandler(this.FolderList_Click);
             this.FolderList.DragDrop += new System.Windows.Forms.DragEventHandler(this.FolderList_DragDrop);
             this.FolderList.DragEnter += new System.Windows.Forms.DragEventHandler(this.FolderList_DragEnter);
@@ -270,6 +276,7 @@
             this.BtnClearUpFilesTitle.TabIndex = 0;
             this.BtnClearUpFilesTitle.Text = "清除上传文件";
             this.BtnClearUpFilesTitle.UseVisualStyleBackColor = false;
+            this.BtnClearUpFilesTitle.Click += new System.EventHandler(this.BtnClearUpFilesTitle_Click);
             // 
             // BtnCreatePathTitle
             // 
@@ -359,7 +366,7 @@
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Top;
             this.skinTabControl1.PageNorml = null;
             this.skinTabControl1.SelectedIndex = 0;
-            this.skinTabControl1.Size = new System.Drawing.Size(769, 262);
+            this.skinTabControl1.Size = new System.Drawing.Size(769, 263);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 0;
             // 
@@ -370,7 +377,7 @@
             this.skinTabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(769, 226);
+            this.skinTabPage2.Size = new System.Drawing.Size(769, 227);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
             this.skinTabPage2.Text = "上传队列";
@@ -381,11 +388,12 @@
             this.uploadtable.ColumnModel = this.uploadcolumnModel;
             this.uploadtable.ContextMenuStrip = this.uploadlistskinContextMenuStrip;
             this.uploadtable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadtable.FullRowSelect = true;
             this.uploadtable.GridLines = XPTable.Models.GridLines.Both;
             this.uploadtable.Location = new System.Drawing.Point(0, 0);
             this.uploadtable.Name = "uploadtable";
             this.uploadtable.NoItemsText = "";
-            this.uploadtable.Size = new System.Drawing.Size(769, 226);
+            this.uploadtable.Size = new System.Drawing.Size(769, 227);
             this.uploadtable.TabIndex = 0;
             this.uploadtable.TableModel = this.uploadtableModel;
             this.uploadtable.DragDrop += new System.Windows.Forms.DragEventHandler(this.uploadtable_DragDrop);
@@ -420,6 +428,27 @@
             this.uploadlistskinContextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
             this.uploadlistskinContextMenuStrip.TitleRadius = 4;
             this.uploadlistskinContextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // uploadToolStripMenuItem
+            // 
+            this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.uploadToolStripMenuItem.Text = "上传/续传";
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
+            // 
+            // clearcomplateToolStripMenuItem
+            // 
+            this.clearcomplateToolStripMenuItem.Name = "clearcomplateToolStripMenuItem";
+            this.clearcomplateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clearcomplateToolStripMenuItem.Text = "清除完成";
+            this.clearcomplateToolStripMenuItem.Click += new System.EventHandler(this.clearcomplateToolStripMenuItem_Click);
+            // 
+            // clearallToolStripMenuItem
+            // 
+            this.clearallToolStripMenuItem.Name = "clearallToolStripMenuItem";
+            this.clearallToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clearallToolStripMenuItem.Text = "清除所有";
+            this.clearallToolStripMenuItem.Click += new System.EventHandler(this.clearallToolStripMenuItem_Click);
             // 
             // uploadtableModel
             // 
@@ -541,27 +570,6 @@
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
-            // uploadToolStripMenuItem
-            // 
-            this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
-            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.uploadToolStripMenuItem.Text = "上传/续传";
-            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
-            // 
-            // clearcomplateToolStripMenuItem
-            // 
-            this.clearcomplateToolStripMenuItem.Name = "clearcomplateToolStripMenuItem";
-            this.clearcomplateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.clearcomplateToolStripMenuItem.Text = "清除完成";
-            this.clearcomplateToolStripMenuItem.Click += new System.EventHandler(this.clearcomplateToolStripMenuItem_Click);
-            // 
-            // clearallToolStripMenuItem
-            // 
-            this.clearallToolStripMenuItem.Name = "clearallToolStripMenuItem";
-            this.clearallToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.clearallToolStripMenuItem.Text = "清除所有";
-            this.clearallToolStripMenuItem.Click += new System.EventHandler(this.clearallToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -621,7 +629,6 @@
         private XPTable.Models.TextColumn textColumn1;
         private XPTable.Models.TextColumn textColumn2;
         private XPTable.Models.TextColumn textColumn3;
-        private XPTable.Models.Table FolderList;
         private XPTable.Models.ColumnModel FolderListcolumnModel;
         private XPTable.Models.TableModel FolderListtableModel;
         private System.Windows.Forms.ImageList FolderShowImg;
@@ -640,6 +647,7 @@
         private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearcomplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearallToolStripMenuItem;
+        private XPTable.Models.Table FolderList;
     }
 }
 

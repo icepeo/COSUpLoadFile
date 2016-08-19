@@ -84,8 +84,9 @@ namespace COSUpLoadFile.Common
                 }
                 tm.Rows[count].Cells.Add(new Cell("--"));
                 tm.Rows[count].Cells.Add(new Cell(Function.ConvertIntDateTime(fp.ctime).ToString()));
-                tm.Rows[count].Cells.Add(new Cell(""));                
-                count = count + 1;                
+                tm.Rows[count].Cells.Add(new Cell(""));
+                tm.Rows[count].Editable = false;
+                count = count + 1;
             }
             label.Text = "/" + CurbucketName + path;
         }
@@ -300,6 +301,7 @@ namespace COSUpLoadFile.Common
                     {
                         f.filepath = fileitem.FullName;
                         f.filesize = FormatCapacity(FileSize(fileitem.FullName));
+                        f.filesizes = FileSize(fileitem.FullName);
                         f.filetype = "文件";
                         f.fileprogress = 0;
                         f.fileindex = ocount;
@@ -425,20 +427,22 @@ namespace COSUpLoadFile.Common
         /// <param name="lf"></param>
         public static void DelFiles(CosCloud cos, string bucketName, List<FileModel> lf, string curfolder)
         {
+            string tempcurfolder = curfolder;
             foreach (var item in lf)
             {
                 if (item.filefrontdir != "")
                 {
-                    curfolder = curfolder + item.filefrontdir;
+                    tempcurfolder = curfolder.TrimEnd('/') + item.filefrontdir;
                 }
-                string tempres = cos.GetFileStat(bucketName, curfolder + "/" + Path.GetFileName(item.filepath));
+                string tempres = cos.GetFileStat(bucketName, tempcurfolder + "/" + Path.GetFileName(item.filepath));
                 JObject tempobj = (JObject)JsonConvert.DeserializeObject(tempres);
                 var tempcode = (int)tempobj["code"];
                 if (tempcode == 0)
                 {
                     if (tempobj["data"]["filelen"].ToString() == tempobj["data"]["filesize"].ToString())
                     {
-                        cos.DeleteFile(bucketName, curfolder.TrimEnd('/') + "/" + Path.GetFileName(item.filepath));
+                        string temp=cos.DeleteFile(bucketName, tempcurfolder.TrimEnd('/') + "/" + Path.GetFileName(item.filepath));
+
                     }
                 }
             }

@@ -32,7 +32,7 @@ namespace COSUpLoadFile
         private ThreadMulti _thread = null;
         private int pagesize = 199;
         private List<FileModel> _needupfilelist=null;
-        private List<FileModel> _filelist = null;
+        private volatile List<FileModel> _filelist = null;
         private static ILog log = LogManager.GetLogger("Logs");
         private static int _count;  //进程完成量;
         #endregion
@@ -210,10 +210,12 @@ namespace COSUpLoadFile
                     //XPTable
                     // add some Rows and Cells to the TableModel
                     uploadtableModel.Rows.Add(new Row());
+                    uploadtableModel.Rows[vi].Tag = v.filefrontdir;
                     uploadtableModel.Rows[vi].Cells.Add(new Cell(v.filepath));
                     uploadtableModel.Rows[vi].Cells.Add(new Cell(v.filesize));
                     uploadtableModel.Rows[vi].Cells.Add(new Cell("Progress" + vi, v.fileprogress));
                     uploadtableModel.Rows[vi].Cells.Add(new Cell("操作"+vi));
+                    uploadtableModel.Rows[vi].Editable = false;
                     //END
                     vi++;
                 }
@@ -268,7 +270,7 @@ namespace COSUpLoadFile
                 {
                     curfolder = curfolder + _files.filefrontdir;
                 }
-                if (_files.filesizes > sliceSize) //文件大小大于5M,使用SliceUploadFile分片上传,其余为UploadFile普通上传
+                if (_files.filesizes > sliceSize) //文件大小大于sliceSize,使用SliceUploadFile分片上传,其余为UploadFile普通上传
                 {
                     string result = cos.SliceUploadFileFirstStep(CurbucketName, curfolder + "/" + Path.GetFileName(_files.filepath), _files.filepath, sliceSize);
                     JObject obj = (JObject)JsonConvert.DeserializeObject(result);
@@ -283,7 +285,6 @@ namespace COSUpLoadFile
                     {
                         var accessUrl = data["access_url"];
                         UpLoadFileMulti_DisplayProgress(threadindex, index, indexs, 100);
-                        //MessageBox.Show("上传完成:" + accessUrl);
                         return;
                     }
                     else
@@ -294,7 +295,6 @@ namespace COSUpLoadFile
                         var retryCount = 0;
                         var progress = Function.prencent(offset, _files.filesizes);
                         UpLoadFileMulti_DisplayProgress(threadindex, index, indexs, progress);
-                        //bw.ReportProgress(Convert.ToInt32(offset));//progressBar1.Value = Convert.ToInt32(offset);
                         while (true)
                         {
                             result = cos.SliceUploadFileFollowStep(CurbucketName, curfolder + "/" + Path.GetFileName(_files.filepath), _files.filepath, sessionId, offset, sliceSize);
@@ -330,10 +330,8 @@ namespace COSUpLoadFile
                             }
                             progress = Function.prencent(offset, _files.filesizes);
                             UpLoadFileMulti_DisplayProgress(threadindex, index, indexs, progress);
-                            //bw.ReportProgress(Convert.ToInt32(offset));// progressBar1.Value = Convert.ToInt32(offset);
                         }
                     }
-                    // return;
                     results = result;
                 }
                 else
@@ -341,20 +339,12 @@ namespace COSUpLoadFile
                     results = cos.UploadFile(CurbucketName, curfolder + "/" + Path.GetFileName(_files.filepath), _files.filepath);
                     UpLoadFileMulti_DisplayProgress(threadindex, index, indexs, 100);
                 }
-                //e.Result = results;
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("上传文件失败:" + ex.Message);
                 var ex1 = ex.Message;
                 return;
             }
-
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    System.Threading.Thread.Sleep(threadindex * 5);
-            //    UpLoadFileMulti_DisplayProgress(threadindex, index, i);
-            //}
         }
 
         /// <summary>
@@ -420,6 +410,7 @@ namespace COSUpLoadFile
                     {
                         BuckettableModel.Rows[bucketName_i].BackColor = Color.WhiteSmoke;
                     }
+                    BuckettableModel.Rows[bucketName_i].Editable = false;
                 }
             }
             else
@@ -430,7 +421,8 @@ namespace COSUpLoadFile
                 BuckettableModel.Rows.Add(new Row());
                 BuckettableModel.Rows[0].Cells.Add(new Cell(bucketName));
                 BuckettableModel.Rows[0].Tag = "0";
-            }
+                BuckettableModel.Rows[0].Editable = false;
+            }            
         }
 
         private void BucketList_Click(object sender, EventArgs e)
@@ -716,8 +708,8 @@ namespace COSUpLoadFile
                 return;
             }
             List<FileModel> rfilelist = Fileslist.FindAll(t => t.fileprogress != 100);
-            BindXPTable(rfilelist);
             Serializes.MySerialize<List<FileModel>>(rfilelist, GlobelSet.stringpath);
+            BindXPTable(rfilelist);            
         }
 
         private void clearallToolStripMenuItem_Click(object sender, EventArgs e)
@@ -881,6 +873,7 @@ namespace COSUpLoadFile
                     {
                         MessageBox.Show(m);
                         Function.ReadMainFolder(Function.FolderPath(Lblcurpathvalue.Text, CurbucketName), FolderListtableModel, FolderShowImg, CurbucketName, Lblcurpathvalue);
+                        FolderListtableModel.Rows[0].Cells[0].Checked=true;
                         return;
                     }
                     //try
@@ -936,6 +929,36 @@ namespace COSUpLoadFile
             }
         }
 
+        
+
+        private void BtnWFNtitle_Click(object sender, EventArgs e)
+        {
+            if (Fileslist != null)
+            {
+                //先删除存在的文件
+                CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
+                Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
+                ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { Fileslist });
+            }
+        }        
+
+        private void BtnClearUpFilesTitle_Click(object sender, EventArgs e)
+        {
+            uploadtableModel.Rows.Clear();
+            NeedupFilelist = null;
+            Fileslist = null;
+            try
+            {
+                File.Delete(GlobelSet.stringpath);
+            }
+            catch
+            {
+                return;
+            }
+        }
+        #endregion
+
+        #region 拖入数据上传文件
         private void FolderList_DragDrop(object sender, DragEventArgs e)
         {
             if (_thread != null)
@@ -946,7 +969,6 @@ namespace COSUpLoadFile
             {
                 NeedupFilelist = null;
             }
-            //fileslist = null;
             List<FileModel> filescollections = new List<FileModel>();
             int fi = 0;
             string[] File = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -1008,11 +1030,12 @@ namespace COSUpLoadFile
             }
             //filescollections = filescollections.OrderByDescending(o => o.fileindex).ToList();
             //序列化到文件
+            Fileslist = filescollections;
             Serializes.MySerialize<List<FileModel>>(filescollections, GlobelSet.stringpath);
 
             //从文件读取记录
             List<FileModel> _fileslist = Serializes.MyDeSerialize<List<FileModel>>(GlobelSet.stringpath);
-
+            NeedupFilelist = _filelist;
             int vi = 0;
             uploadtableModel.Rows.Clear();
             foreach (FileModel v in _fileslist)
@@ -1020,10 +1043,13 @@ namespace COSUpLoadFile
                 //XPTable
                 // add some Rows and Cells to the TableModel
                 uploadtableModel.Rows.Add(new Row());
+                uploadtableModel.Rows[vi].Tag = v.filefrontdir;
                 uploadtableModel.Rows[vi].Cells.Add(new Cell(v.filepath));
                 uploadtableModel.Rows[vi].Cells.Add(new Cell(v.filesize));
+                uploadtableModel.Rows[vi].Cells[1].Tag = v.filesizes;
                 uploadtableModel.Rows[vi].Cells.Add(new Cell("Progress" + vi, v.fileprogress));
                 //uploadtableModel.Rows[vi].Cells.Add(new Cell("操作"+vi));
+                uploadtableModel.Rows[vi].Editable = false;
                 //END
                 vi++;
             }
@@ -1045,17 +1071,6 @@ namespace COSUpLoadFile
             }
         }
 
-        private void BtnWFNtitle_Click(object sender, EventArgs e)
-        {
-            if (Fileslist != null)
-            {
-                //先删除存在的文件
-                CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
-                Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
-                ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { Fileslist });
-            }
-        }
-
         private void uploadtable_DragDrop(object sender, DragEventArgs e)
         {
             FolderList_DragDrop(sender, e);
@@ -1066,6 +1081,5 @@ namespace COSUpLoadFile
             FolderList_DragEnter(sender, e);
         }
         #endregion
-
     }
 }
