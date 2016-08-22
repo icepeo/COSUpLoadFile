@@ -370,11 +370,19 @@ namespace COSUpLoadFile
         {
             this.BeginInvoke(new MethodInvoker(delegate()
             {
-                this.uploadtableModel.Rows[listindex].Cells[2].Data = progress;
-                lock (this)
+                try
                 {
-                    Fileslist[listindex].fileprogress = progress;
-                    Serializes.MySerialize<List<FileModel>>(Fileslist, GlobelSet.stringpath);
+                    this.uploadtableModel.Rows[listindex].Cells[2].Data = progress;
+                    lock (this)
+                    {
+                        Fileslist[listindex].fileprogress = progress;
+                        Serializes.MySerialize<List<FileModel>>(Fileslist, GlobelSet.stringpath);
+                    }
+                }
+                catch(Exception e)
+                {
+                    log.Info("出错原因：",e);
+                    return;
                 }
             }));
         }
@@ -714,7 +722,12 @@ namespace COSUpLoadFile
 
         private void clearallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uploadtableModel.Rows.Clear();
+            clearallupfile();
+        }
+
+        private void clearallupfile()
+        {
+            
             if (_thread != null)
             {
                 _thread.Stop();
@@ -729,6 +742,7 @@ namespace COSUpLoadFile
             {
                 return;
             }
+            uploadtableModel.Rows.Clear();
         }
 
         private void BindXPTable(List<FileModel> l)
@@ -936,25 +950,15 @@ namespace COSUpLoadFile
             if (Fileslist != null)
             {
                 //先删除存在的文件
-                CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
-                Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
+                //CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
+                //Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
                 ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { Fileslist });
             }
         }        
 
         private void BtnClearUpFilesTitle_Click(object sender, EventArgs e)
         {
-            uploadtableModel.Rows.Clear();
-            NeedupFilelist = null;
-            Fileslist = null;
-            try
-            {
-                File.Delete(GlobelSet.stringpath);
-            }
-            catch
-            {
-                return;
-            }
+            clearallToolStripMenuItem_Click(sender, e);
         }
         #endregion
 
