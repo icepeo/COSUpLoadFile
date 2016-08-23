@@ -380,7 +380,7 @@
             this.skinTabPage2.Size = new System.Drawing.Size(769, 227);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
-            this.skinTabPage2.Text = "上传队列";
+            this.skinTabPage2.Text = "";
             // 
             // uploadtable
             // 

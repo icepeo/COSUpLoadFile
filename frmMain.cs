@@ -35,6 +35,7 @@ namespace COSUpLoadFile
         private volatile List<FileModel> _filelist = null;
         private static ILog log = LogManager.GetLogger("Logs");
         private static int _count;  //进程完成量;
+        private static string tabname = "上传队列";
         #endregion
 
         #region 初始化函数
@@ -46,6 +47,7 @@ namespace COSUpLoadFile
         private void frmMain_Load(object sender, EventArgs e)
         {
             log.Info("初始化程序内容");
+            skinTabPage2.Text = tabname;
             initFolderList();
             Bind_lvbucketlist();
             Bind_uploadlist();
@@ -354,6 +356,7 @@ namespace COSUpLoadFile
         {
             this.BeginInvoke(new MethodInvoker(delegate()
             {
+                //skinTabPage2.Text=tabname+
                 Function.ReadMainFolder(Function.FolderPath(Lblcurpathvalue.Text, CurbucketName).TrimEnd('/') + "/", FolderListtableModel, FolderShowImg, CurbucketName, Lblcurpathvalue);
             }));
             _thread = null;
@@ -947,12 +950,20 @@ namespace COSUpLoadFile
 
         private void BtnWFNtitle_Click(object sender, EventArgs e)
         {
-            if (Fileslist != null)
+            if (_thread == null)
             {
-                //先删除存在的文件
-                //CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
-                //Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
-                ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { Fileslist });
+                if (Fileslist != null)
+                {
+                    //先删除存在的文件
+                    //CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
+                    //Function.DelFiles(cos, CurbucketName, Fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
+                    ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { Fileslist });
+                }
+            }
+            else
+            {
+                MessageBox.Show("正在传送！");
+                return;
             }
         }        
 
@@ -1060,6 +1071,7 @@ namespace COSUpLoadFile
             //先删除存在的文件
             CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
             Function.DelFiles(cos, CurbucketName, _fileslist, Function.FolderPath(Lblcurpathvalue.Text, CurbucketName));
+            //skinTabPage2.Text = skinTabPage2.Text + "(0/" + _filelist.Count + ")";
             ThreadPool.QueueUserWorkItem(new WaitCallback(UpLoadFileMulti_Start), new object[] { _fileslist });
         }
 
