@@ -77,7 +77,14 @@ namespace COSUpLoadFile.Threading
         {
             for (int i = 0; i < _threads.Length; i++)
             {
-                _threads[i].Abort();
+                //try
+                //{
+                    _threads[i].Abort();
+                //}
+                //catch(Exception e)
+                //{
+                    
+                //}
             }
 
             //string s = "";

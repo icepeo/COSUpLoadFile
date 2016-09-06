@@ -15,6 +15,7 @@ namespace COSUpLoadFile.Common
 {
     public class Function
     {
+        #region 目录列表显示函数
         /// <summary>
         /// 读取远程目录列表数据
         /// </summary>
@@ -58,6 +59,9 @@ namespace COSUpLoadFile.Common
             tm.Rows.Clear();
             tm.Rows.Add(new Row());
             tm.Rows[0].Cells.Add(new Cell("..",image.Images[0]));
+            tm.Rows[0].Cells.Add(new Cell());
+            tm.Rows[0].Cells.Add(new Cell());
+            tm.Rows[0].Cells.Add(new Cell());
             tm.Rows[0].Tag = "-1";
             foreach (FolderProperty fp in getdata)
             {
@@ -189,6 +193,7 @@ namespace COSUpLoadFile.Common
             }
             return img;
         }
+        #endregion
 
         #region 通用
         /// <summary>

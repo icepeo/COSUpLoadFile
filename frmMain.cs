@@ -261,7 +261,7 @@ namespace COSUpLoadFile
             List<FileModel> _fileslist = NeedupFilelist;
             FileModel _files = _fileslist[index - 1];
             string results = "";
-            int sliceSize =9216;
+            int sliceSize =GlobelSet.SliceSize;
             int indexs = _files.fileindex;
             CosCloud cos = new CosCloud(GlobelSet.APP_ID, GlobelSet.SECRET_ID, GlobelSet.SECRET_KEY);
             try
@@ -354,13 +354,17 @@ namespace COSUpLoadFile
         /// </summary>
         private void UpLoadFileMulti_Complated()
         {
+            NeedupFilelist = null;
             this.BeginInvoke(new MethodInvoker(delegate()
             {
                 //skinTabPage2.Text=tabname+
                 Function.ReadMainFolder(Function.FolderPath(Lblcurpathvalue.Text, CurbucketName).TrimEnd('/') + "/", FolderListtableModel, FolderShowImg, CurbucketName, Lblcurpathvalue);
             }));
-            _thread = null;
-            NeedupFilelist = null;
+            if (_thread != null)
+            {
+                _thread.Stop();
+            }            
+            //MessageBox.Show("完成");
         }
 
         /// <summary>

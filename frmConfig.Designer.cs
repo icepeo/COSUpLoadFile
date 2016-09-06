@@ -42,6 +42,8 @@
             this.txtThreadValue = new CCWin.SkinControl.SkinTextBox();
             this.BtnSaveConfig = new CCWin.SkinControl.SkinButton();
             this.BtnCloseConfig = new CCWin.SkinControl.SkinButton();
+            this.skinLabel1 = new CCWin.SkinControl.SkinLabel();
+            this.txtSliceSize = new CCWin.SkinControl.SkinTextBox();
             this.SuspendLayout();
             // 
             // LblAppIdTitle
@@ -294,6 +296,51 @@
             this.BtnCloseConfig.UseVisualStyleBackColor = false;
             this.BtnCloseConfig.Click += new System.EventHandler(this.BtnCloseConfig_Click);
             // 
+            // skinLabel1
+            // 
+            resources.ApplyResources(this.skinLabel1, "skinLabel1");
+            this.skinLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel1.BorderColor = System.Drawing.Color.White;
+            this.skinLabel1.Name = "skinLabel1";
+            // 
+            // txtSliceSize
+            // 
+            this.txtSliceSize.BackColor = System.Drawing.Color.Transparent;
+            this.txtSliceSize.DownBack = null;
+            this.txtSliceSize.Icon = null;
+            this.txtSliceSize.IconIsButton = false;
+            this.txtSliceSize.IconMouseState = CCWin.SkinClass.ControlState.Normal;
+            this.txtSliceSize.IsPasswordChat = '\0';
+            this.txtSliceSize.IsSystemPasswordChar = false;
+            this.txtSliceSize.Lines = new string[] {
+        "9216"};
+            resources.ApplyResources(this.txtSliceSize, "txtSliceSize");
+            this.txtSliceSize.MaxLength = 32767;
+            this.txtSliceSize.MouseBack = null;
+            this.txtSliceSize.MouseState = CCWin.SkinClass.ControlState.Normal;
+            this.txtSliceSize.Multiline = false;
+            this.txtSliceSize.Name = "txtSliceSize";
+            this.txtSliceSize.NormlBack = null;
+            this.txtSliceSize.ReadOnly = false;
+            this.txtSliceSize.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            // 
+            // 
+            // 
+            this.txtSliceSize.SkinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSliceSize.SkinTxt.Dock = ((System.Windows.Forms.DockStyle)(resources.GetObject("resource.Dock5")));
+            this.txtSliceSize.SkinTxt.Font = ((System.Drawing.Font)(resources.GetObject("resource.Font5")));
+            this.txtSliceSize.SkinTxt.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location5")));
+            this.txtSliceSize.SkinTxt.Name = "BaseText";
+            this.txtSliceSize.SkinTxt.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size5")));
+            this.txtSliceSize.SkinTxt.TabIndex = ((int)(resources.GetObject("resource.TabIndex5")));
+            this.txtSliceSize.SkinTxt.Text = resources.GetString("resource.Text5");
+            this.txtSliceSize.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtSliceSize.SkinTxt.WaterText = "";
+            this.txtSliceSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtSliceSize.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtSliceSize.WaterText = "";
+            this.txtSliceSize.WordWrap = true;
+            // 
             // frmConfig
             // 
             this.AcceptButton = this.BtnSaveConfig;
@@ -304,11 +351,13 @@
             this.ControlBox = false;
             this.Controls.Add(this.BtnCloseConfig);
             this.Controls.Add(this.BtnSaveConfig);
+            this.Controls.Add(this.txtSliceSize);
             this.Controls.Add(this.txtThreadValue);
             this.Controls.Add(this.txtBucketNameValue);
             this.Controls.Add(this.txtSecretKeyValue);
             this.Controls.Add(this.txtSecretIDValue);
             this.Controls.Add(this.txtAppIDValue);
+            this.Controls.Add(this.skinLabel1);
             this.Controls.Add(this.LblThreading);
             this.Controls.Add(this.LblBucketName);
             this.Controls.Add(this.LblsecretKey);
@@ -337,5 +386,7 @@
         private CCWin.SkinControl.SkinTextBox txtThreadValue;
         private CCWin.SkinControl.SkinButton BtnSaveConfig;
         private CCWin.SkinControl.SkinButton BtnCloseConfig;
+        private CCWin.SkinControl.SkinLabel skinLabel1;
+        private CCWin.SkinControl.SkinTextBox txtSliceSize;
     }
 }

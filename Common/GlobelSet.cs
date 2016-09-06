@@ -11,6 +11,7 @@ namespace COSUpLoadFile
         private static string _SECRET_ID = ConfigurationManager.AppSettings["SECRET_ID"];
         private static string _SECRET_KEY = ConfigurationManager.AppSettings["SECRET_KEY"];
         private static string _BucketName = ConfigurationManager.AppSettings["bucketName"];
+        private static int _sliceSize = 9216;
         private static object obj = new object();        
         private static XmlHelper xml;
         #endregion
@@ -21,6 +22,7 @@ namespace COSUpLoadFile
         public static int pagesize = 199;
         public static int threadnum = 1;
         public static string _curbucketName;
+        
         #endregion
 
         static GlobelSet()
@@ -115,6 +117,21 @@ namespace COSUpLoadFile
                 else
                 {
                     return threadnum;
+                }
+            }
+        }
+
+        public static int SliceSize
+        {
+            get
+            {
+                if (xml.GetXmlNode(xmlpath, "config/sliceSize") != null)
+                {
+                    return int.Parse(xml.GetXmlNode(xmlpath, "config/sliceSize").InnerText);
+                }
+                else
+                {
+                    return _sliceSize;
                 }
             }
         }

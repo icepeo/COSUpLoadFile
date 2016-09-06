@@ -15,6 +15,7 @@ namespace COSUpLoadFile
         private string secretkey = "xx3jw44FfQ1HtzmAdnzXfxEH05F3qgGO";
         private string bucketName = "mytest";
         private string thread = "1";
+        private string sliceSize = "9126";
         public frmConfig()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace COSUpLoadFile
                 xmlhelper.AddNode(currpath, "config", "secretkey",txtSecretKeyValue.Text);
                 xmlhelper.AddNode(currpath, "config", "bucketName",txtBucketNameValue.Text);
                 xmlhelper.AddNode(currpath, "config", "thread", txtThreadValue.Text);
+                xmlhelper.AddNode(currpath, "config", "sliceSize", txtSliceSize.Text);
             }
             else
             {
@@ -45,6 +47,7 @@ namespace COSUpLoadFile
                 xmlhelper.UpdateNode(currpath, "config", "secretkey", txtSecretKeyValue.Text);
                 xmlhelper.UpdateNode(currpath, "config", "bucketName", txtBucketNameValue.Text);
                 xmlhelper.UpdateNode(currpath, "config", "thread", txtThreadValue.Text);
+                xmlhelper.UpdateNode(currpath, "config", "sliceSize", txtSliceSize.Text);
             }
             MessageBox.Show("配置完成");
         }
@@ -63,6 +66,7 @@ namespace COSUpLoadFile
                 txtSecretKeyValue.Text = (xmlhelper.GetXmlNode(currpath, "config/secretkey") == null ? secretkey : xmlhelper.GetXmlNode(currpath, "config/secretkey").InnerText);
                 txtBucketNameValue.Text = (xmlhelper.GetXmlNode(currpath, "config/bucketName") == null ? bucketName : xmlhelper.GetXmlNode(currpath, "config/bucketName").InnerText);
                 txtThreadValue.Text = (xmlhelper.GetXmlNode(currpath, "config/thread") == null ? thread : xmlhelper.GetXmlNode(currpath, "config/thread").InnerText);
+                txtSliceSize.Text = (xmlhelper.GetXmlNode(currpath, "config/sliceSize") == null ? sliceSize : xmlhelper.GetXmlNode(currpath, "config/sliceSize").InnerText);
             }
         }
     }
